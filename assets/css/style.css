@@ -1,11 +1,14 @@
 body {
   font-family: 'Roboto';
+  color: white;
+}
+
+.index {
   background: url(../images/bcg.jpg) no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
-  color: white;
 }
 
 .logo {
@@ -23,7 +26,8 @@ body {
   text-align: center;
 }
 
-.sign-in {
+.sign-in,
+.wish-btn {
   background-color: white;
   margin-right: 10px;
 }
@@ -35,6 +39,7 @@ body {
 }
 
 .sign-in,
+.regular-btn,
 .login {
   border: 2px solid white;
   color: #003a53;
@@ -50,4 +55,35 @@ body {
   margin-top: 50px;
   align-self: center;
   justify-content: space-around;
+}
+
+button {
+  border-radius: 5px;
+}
+/* Signed-papge */
+
+.signed-page {
+  background: #003a53;
+}
+
+.greeting {
+  font-weight: 100;
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  margin-top: 100px;
+}
+
+.greeting h1 {
+  font-size: 40px;
+}
+
+.greeting p {
+  margin-top: 50px;
+  line-height: 22px;
+}
+
+.saved-jobs-btn {
+  background-color: white;
+  margin-left: 10px;
 }
