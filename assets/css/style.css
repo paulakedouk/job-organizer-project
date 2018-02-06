@@ -1,6 +1,9 @@
 body {
   font-family: 'Roboto';
   color: white;
+  max-width: 1020px;
+  margin: 0 auto;
+  margin-top: 100px;
 }
 
 .index {
@@ -60,10 +63,17 @@ body {
 button {
   border-radius: 5px;
 }
-/* Signed-papge */
+
+/* Signed-page */
+
+.signed-page,
+.saved-jobs,
+.add-job {
+  background: #003a53;
+}
 
 .signed-page {
-  background: #003a53;
+  margin-top: 200px;
 }
 
 .greeting {
@@ -86,4 +96,46 @@ button {
 .saved-jobs-btn {
   background-color: white;
   margin-left: 10px;
+}
+
+/* Add job page */
+
+.container h1 {
+  font-size: 40px;
+  font-weight: 100;
+}
+
+/* Saved jobs */
+
+.saved-jobs {
+  margin-top: 200px;
+}
+
+.rtable {
+  margin-top: 30px;
+  vertical-align: top;
+  max-width: 100%;
+  margin: 0 auto;
+  white-space: nowrap;
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+.rtable th {
+  font-size: 14px;
+  text-transform: uppercase;
+  padding: 10px 25px;
+}
+
+.rtable td {
+  padding: 20px 60px;
+  color: #003a53;
+}
+
+.rtable tbody {
+  background: white;
+}
+
+.spacer {
+  height: 10px;
 }
