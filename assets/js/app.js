@@ -53,14 +53,17 @@ var database = firebase.database();
 
 
 // function to dynamically trigger new HTML rows
-$("#submit-category").on("click", function(){
+$("#button").on("click", function(){
 	// don't refresh the page!
 	event.preventDefault();
+	console.log("hi")
 	// define temp variables
-	inputName = $("#category-input").val().trim();
-	// code for handling the push
 	database.ref().push({
-		category: inputCategory,
+		jobID: 1010480,
+		dateApplied: "12/31/2017",
+		appSummary: "Emailed recruiter on 1/1/14",
+		Status: "Waiting for response."
+
 	});
 
 })
