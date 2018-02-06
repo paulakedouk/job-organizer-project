@@ -1,0 +1,53 @@
+body {
+  font-family: 'Roboto';
+  background: url(../images/bcg.jpg) no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  color: white;
+}
+
+.logo {
+  width: 150px;
+  margin: 0 auto;
+  margin-top: 200px;
+}
+
+.description p {
+  font-weight: 100;
+  width: 500px;
+  margin: 0 auto;
+  margin-top: 30px;
+  line-height: 22px;
+  text-align: center;
+}
+
+.sign-in {
+  background-color: white;
+  margin-right: 10px;
+}
+
+.login {
+  background: transparent;
+  margin-left: 10px;
+  color: white !important;
+}
+
+.sign-in,
+.login {
+  border: 2px solid white;
+  color: #003a53;
+  padding: 15px 40px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+}
+
+.buttons {
+  text-align: center;
+  margin-top: 50px;
+  align-self: center;
+  justify-content: space-around;
+}
