@@ -1,3 +1,7 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Roboto';
   color: white;
@@ -68,7 +72,8 @@ button {
 
 .signed-page,
 .saved-jobs,
-.add-job {
+.add-job,
+.job-view {
   background: #003a53;
 }
 
@@ -138,4 +143,26 @@ button {
 
 .spacer {
   height: 10px;
+}
+
+/* job view page */
+
+.container-company {
+  display: flex;
+  font-size: 24px;
+  line-height: 35px;
+  font-weight: 100;
+}
+
+.company-info {
+  width: 60%;
+  padding: 30px;
+}
+
+.table-application {
+  color: #003a53;
+  background: white;
+  border-radius: 5px;
+  width: 40%;
+  padding: 30px;
 }
