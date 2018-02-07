@@ -8,12 +8,47 @@
     <title>The Job Organizer</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- jQuery library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+
 </head>
 
 <body class="add-job">
     <div class="container">
 
+
+		<!-- search form -->
+		<form id="search-form">
+			<div class="form-group">
+				<label for="search-category">Position:</label>
+				<input class="form-control" type="text" id="category-input">
+			</div>
+			<!-- submit button -->
+			<input type="submit" id="submit-search" value="Submit">
+		</form>
+
+		<!-- table showing search results -->
+        <table class="rtable">
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Position</th>
+                    <th>Location</th>
+                	<th>Add Job</th>
+                </tr>
+            </thead>
+            <tbody class="search-body">
+            </tbody>
+        </table>
+
     </div>
+
+<script src="assets/js/app.js"></script>
+
+
 </body>
 
 </html>

@@ -1,37 +1,9 @@
 
-  
-//  AJAX call to Muse API, to be used in search
-
-function ajaxMuse () {
-
-	var category = "Engineering";
-	// need to fix location search to replace spaces with "%20" 
-	var location = "San Francisco";
-	var apiKey = "";
-	var queryURL = "https://api-v2.themuse.com/jobs?category=" + category + "&location=San%20Francisco%2C%20CA&page=1"
 
 
 
-	$.ajax({
-		url: queryURL,
-		method: "GET"
-	}).then(function(response){
+// =========== INITIALIZE FIREBASE, database variable declared globally
 
-		console.log(response.results[0].company.name);
-		console.log(response.results[0].name);
-		console.log(response.results[0].contents);
-		console.log(response)
-
-		});
-	};
-
-
-
-
-// =============================
-
-
- // Initialize Firebase
  var config = {
     apiKey: "AIzaSyCyrwud0YbX4UU9gqsiBsexs5EgneeZZ04",
     authDomain: "project-1-240fe.firebaseapp.com",
@@ -45,10 +17,182 @@ function ajaxMuse () {
 
 var database = firebase.database();
 
+// ======================================================================
 
 
 
-// temp function to generate firebase entry
+
+// =========== POPULATES 'YOUR SAVED JOBS' TABLE ON PAGE LOAD......
+
+// firebase watcher & initial loader
+database.ref().on("child_added", function(snapshot) {
+	// creating variable to call the output pathway
+	var snap = snapshot.val();
+
+	// ajax call to populate job posting data from jobID saved in firebase
+	
+	// creating variable to store jobID from firebase
+	var jobID = snap.jobID;
+
+	var queryURL = "https://api-v2.themuse.com/jobs/" + jobID
+
+	$.ajax({
+		url: queryURL,
+		method: "GET"
+	}).then(function(response){
+		
+console.log(response)
+	// creates new row div
+	var newRow = $("<tr>");
+	// assigns attributes to reference the row's posting
+		// assigns the randomly generated firebase key to #ID
+		newRow.attr("data-fireID",snapshot.key);
+		//  assigns the jobID saved in firebase as a data attribute
+		newRow.attr("data-jobID", snap.jobID);
+		// adds class "job-row" to each row
+		newRow.addClass("job-row");
+
+		// appends applicable saved elements from firebase to table
+		newRow.append("<td class='table-companyName'>" + response.company.name + "</td>");
+		newRow.append("<td class='table-positionName'>" + response.name + "</td>");
+		newRow.append("<td class='table-dateApplied'>" + snap.dateApplied + "</td>");
+		newRow.append("<td class='table-status'>" + snap.Status + "</td>");
+
+		// appends newRow to table body
+		$(".tbody").append(newRow)
+
+	});
+
+
+
+}, function(errorOnject) {
+	console.log("Errors handled: " + errorObject.code);
+});
+
+// =================================================================================
+
+
+
+
+
+// 	======== WHEN A ROW FROM THE TABLE IS CLICKED, POPULATES JOB-VIEW AREA....
+
+	// need to make this so on click, pulls id from the row and populates below with....
+	
+	$(document).on("click", ".job-row", function() {
+		var activeID = $(this).attr("data-fireID");
+
+		database.ref().on("child_added", function(snapshot) {
+			var snap = snapshot.val();
+
+
+	 // ajax call to populate job posting data from jobID saved in firebase
+	
+	 // creating variable to store jobID from firebase
+	 	var jobID = snap.jobID;
+
+		var queryURL = "https://api-v2.themuse.com/jobs/" + jobID
+
+	 $.ajax({
+	 	url: queryURL,
+	 	method: "GET"
+	 }).then(function(response){
+
+	 	$(".company-name").html(response.company.name);
+	 	$(".job-position").html(response.name);
+	 	$(".job-description").html(response.contents);
+	 	// adds attribute to map class storing the city from Muse API, to be used with google maps api
+	 	$(".map").attr("data-city", response.locations[0].name)
+
+	 	// populates job-view html fields with user input data from firebase
+	 	// put here so it doesn't run until after the AJAX call is complete
+	  	$("#date-applied").html(snap.dateApplied);
+	  	$("#app-summary").html(snap.appSummary);
+	  	$("#status").html(snap.Status);
+
+	 	});
+
+	});
+});
+
+// =================================================================================
+
+
+
+
+// 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Add-Job.html
+
+// ========== AJAX SEARCH TO GENERATE LIST OF JOBS TO ADD TO SAVED TABLE
+
+	// listener for a submit of the search form.
+	$("#submit-search").on("click", function() {
+		// prevents page from refresh when submit button is hit
+		event.preventDefault();
+
+		var userCategory = $("#category-input").val().trim();
+
+
+	//  AJAX call to Muse API, to be used in search
+
+		function ajaxMuse () {
+
+			var category = userCategory;
+			// need to fix location search to replace spaces with "%20" 
+			var location = "San Francisco";
+			var queryURL = "https://api-v2.themuse.com/jobs?category=" + category + "&location=San%20Francisco%2C%20CA&page=1"
+
+
+
+			$.ajax({
+				url: queryURL,
+				method: "GET"
+			}).then(function(response){
+
+				for (var i = 0; i <= response.results.length; i++) {
+					// create new row
+					var newRow = $("<tr>");
+					newRow.attr("data-jobID", response.results[i].id);
+
+					newRow.append("<td>" + response.results[i].company.name + "</td>");
+					newRow.append("<td>" + response.results[i].name + "</td>");
+					newRow.append("<td>"+ response.results[i].locations[0].name + "</td>");
+					newRow.append("<td><button class='add-job'>Add</button><td>")
+
+
+					// append it onto the search-body tably
+					$(".search-body").append(newRow);
+					};
+
+				});
+			};
+
+		ajaxMuse();
+
+	});
+
+
+
+	// Listener for clicks of buttons with .add-job, pushes the jobID saved as a data attribute to Firebase with empty fields for user entry
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// temp function to generate firebase entry, used to test Firebase and not currently linked to anything specific
 $("#button").on("click", function(){
 	// don't refresh the page!
 	event.preventDefault();
@@ -67,49 +211,61 @@ $("#button").on("click", function(){
 
 
 
-// firebase watcher & initial loader
-database.ref().on("child_added", function(snapshot) {
-	// creating variable to call the output pathway
-	var snap = snapshot.val();
-
-	// populates html fields with user input data from firebase
-	$("#date-applied").html(snap.dateApplied);
-	$("#app-summary").html(snap.appSummary);
-	$("#status").html(snap.Status);
 
 
-	// ajax call to populate job posting data from jobID saved in firebase
+// ========= ELEPHANT GRAVEYARD (unused, preserved code)
+//  JUST UPDATES FOR A SPECIFIC JOB (JOB-VIEW)
+
+
+// // firebase watcher & initial loader
+// database.ref().on("child_added", function(snapshot) {
+// 	// creating variable to call the output pathway
+// 	var snap = snapshot.val();
+
+// 	// populates job-view html fields with user input data from firebase
+// 	$("#date-applied").html(snap.dateApplied);
+// 	$("#app-summary").html(snap.appSummary);
+// 	$("#status").html(snap.Status);
+
+
+// 	// ajax call to populate job posting data from jobID saved in firebase
 	
-	// creating variable to store jobID from firebase
-	var jobID = snap.jobID;
+// 	// creating variable to store jobID from firebase
+// 	var jobID = snap.jobID;
 
-	var queryURL = "https://api-v2.themuse.com/jobs/" + jobID
+// 	var queryURL = "https://api-v2.themuse.com/jobs/" + jobID
 
-	$.ajax({
-		url: queryURL,
-		method: "GET"
-	}).then(function(response){
+// 	$.ajax({
+// 		url: queryURL,
+// 		method: "GET"
+// 	}).then(function(response){
+// 		console.log(response)
+// 		$(".company-name").html(response.company.name);
+// 		$(".job-position").html(response.name);
+// 		$(".job-description").html(response.contents);
+// 		// adds attribute to map class storing the city from Muse API, to be used with google maps api
+// 		$(".map").attr("data-city", response.locations[0].name)
 
-		$(".company-name").html(response.company.name);
-		$(".job-position").html(response.name);
-		$(".job-description").html(response.contents);
-		// adds attribute to map class storing the city from Muse API, to be used with google maps api
-		$(".map").attr("data-city", response.locations[0].name)
-
-		});
-
-
-}, function(errorOnject) {
-	console.log("Errors handled: " + errorObject.code);
-});
+// 		});
 
 
+// }, function(errorOnject) {
+// 	console.log("Errors handled: " + errorObject.code);
+// });
+
+
+// =============================================================
+
+  
 
 
 
 
+// ==============================
 
-//   ELEPHANT GRAVEYARD (unused, preserved code)
+
+
+
 
 
 // ------------------------------------------------
