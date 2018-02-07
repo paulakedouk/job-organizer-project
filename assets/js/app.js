@@ -1,6 +1,6 @@
 
   
-
+//  AJAX call to Muse API, to be used in search
 
 function ajaxMuse () {
 
@@ -31,8 +31,8 @@ function ajaxMuse () {
 // =============================
 
 
-  // Initialize Firebase
-  var config = {
+ // Initialize Firebase
+ var config = {
     apiKey: "AIzaSyCyrwud0YbX4UU9gqsiBsexs5EgneeZZ04",
     authDomain: "project-1-240fe.firebaseapp.com",
     databaseURL: "https://project-1-240fe.firebaseio.com",
@@ -46,7 +46,9 @@ function ajaxMuse () {
 var database = firebase.database();
 
 
-// function to dynamically trigger new HTML rows
+
+
+// temp function to generate firebase entry
 $("#button").on("click", function(){
 	// don't refresh the page!
 	event.preventDefault();
