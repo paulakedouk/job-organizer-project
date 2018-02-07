@@ -41,27 +41,29 @@ database.ref().on("child_added", function(snapshot) {
 		method: "GET"
 	}).then(function(response){
 		
-console.log(response)
-	// creates new row div
-	var newRow = $("<tr>");
-	// assigns attributes to reference the row's posting
-		// assigns the randomly generated firebase key to #ID
-		newRow.attr("data-fireID",snapshot.key);
-		//  assigns the jobID saved in firebase as a data attribute
-		newRow.attr("data-jobID", snap.jobID);
-		// adds class "job-row" to each row
-		newRow.addClass("job-row");
 
-		// appends applicable saved elements from firebase to table
-		newRow.append("<td class='table-companyName'>" + response.company.name + "</td>");
-		newRow.append("<td class='table-positionName'>" + response.name + "</td>");
-		newRow.append("<td class='table-dateApplied'>" + snap.dateApplied + "</td>");
-		newRow.append("<td class='table-status'>" + snap.Status + "</td>");
+		// creates new row div
+		var newRow = $("<tr>");
+		// assigns attributes to reference the row's posting
+			// assigns the randomly generated firebase key to #ID
+			newRow.attr("data-fireID",snapshot.key);
+			//  assigns the jobID saved in firebase as a data attribute
+			newRow.attr("data-jobID", snap.jobID);
+			// adds class "job-row" to each row
+			newRow.addClass("job-row");
 
-		// appends newRow to table body
-		$(".tbody").append(newRow)
+			// appends applicable saved elements from firebase to table
+			newRow.append("<td class='table-companyName'>" + response.company.name + "</td>");
+			newRow.append("<td class='table-positionName'>" + response.name + "</td>");
+			newRow.append("<td class='table-dateApplied'>" + snap.dateApplied + "</td>");
+			newRow.append("<td class='table-status'>" + snap.status + "</td>");
+			newRow.append("<td><button class='remove-job'>X</button></td>");
 
-	});
+			// appends newRow to table body
+			$(".tbody").append(newRow)
+			$(".tbody").append("<tr class='spacer'></tr>");
+
+		});
 
 
 
@@ -156,7 +158,7 @@ console.log(response)
 					newRow.append("<td>" + response.results[i].company.name + "</td>");
 					newRow.append("<td>" + response.results[i].name + "</td>");
 					newRow.append("<td>"+ response.results[i].locations[0].name + "</td>");
-					newRow.append("<td><button class='add-job'>Add</button><td>")
+					newRow.append("<td><button class='add-button'>Add</button><td>")
 
 
 					// append it onto the search-body tably
@@ -173,39 +175,45 @@ console.log(response)
 
 
 	// Listener for clicks of buttons with .add-job, pushes the jobID saved as a data attribute to Firebase with empty fields for user entry
+	$(document).on("click", ".add-button", function() {
+		var jobID = $(this).parent().parent().attr("data-jobID");
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// temp function to generate firebase entry, used to test Firebase and not currently linked to anything specific
-$("#button").on("click", function(){
-	// don't refresh the page!
-	event.preventDefault();
-	console.log("hi")
-	// define temp variables
-	database.ref().push({
-		jobID: 1010480,
-		dateApplied: "12/31/2017",
-		appSummary: "Emailed recruiter on 1/1/14",
-		Status: "Waiting for response."
-		});
+		// push jobID with empty user inputs for later use
+		database.ref().push({
+			jobID: jobID,
+			dateApplied: "Not Submitted",
+			appSummary: "",
+			status: "Need to Research"
+		})
 
 	});
+
+
+
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GLOBAL FUNCTIONS
+
+	// listener to remove saved jobs....
+	$(document).on("click", ".remove-job", function() {
+		// pulls firebase key from the rowID and saves to a temp variable
+		var removeKey = $(this).parent().parent().attr("data-fireID");
+		// removes the corresponding key/value pair child from the root in Firebase
+		database.ref().child(removeKey).remove();
+		// updates HTML
+		$(this).closest("tr").remove();
+
+	})
+
+
+
+
+
+
+
+
+
+
+
 
 
 
