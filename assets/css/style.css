@@ -3,69 +3,75 @@
 }
 
 body {
-  font-family: 'Roboto';
-  color: white;
-  max-width: 1020px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   margin: 0 auto;
-  margin-top: 100px;
+  padding: 0;
+  width: 100%;
 }
+
+/* First page */
 
 .index {
-  background: url(../images/bcg.jpg) no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
 }
 
-.logo {
-  width: 150px;
-  margin: 0 auto;
-  margin-top: 200px;
+.img {
+  background: url(../images/initial-img.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  width: 50%;
+  height: 113vh;
+  float: left;
+}
+
+.title {
+  font-weight: 600;
+  text-align: center;
+  font-size: 24px;
+}
+
+.signin {
+  margin-top: 220px;
+  width: 50%;
+  float: right;
 }
 
 .description p {
   font-weight: 100;
-  width: 500px;
+  width: 400px;
   margin: 0 auto;
   margin-top: 30px;
   line-height: 22px;
   text-align: center;
 }
 
-.sign-in,
-.wish-btn {
-  background-color: white;
-  margin-right: 10px;
+.username-form {
+  width: 300px;
+  margin: 0 auto;
+  margin-top: 40px;
 }
 
-.login {
-  background: transparent;
-  margin-left: 10px;
+.username-form input {
+  border: none;
+  border-bottom: 1px solid;
+  width: 300px;
+  line-height: 40px;
+}
+
+.login-btn {
+  background: #242323;
   color: white !important;
-}
-
-.sign-in,
-.regular-btn,
-.login {
-  border: 2px solid white;
-  color: #003a53;
-  padding: 15px 40px;
+  width: 300px;
+  padding: 10px 0;
   text-align: center;
   text-decoration: none;
   display: inline-block;
-  font-size: 16px;
+  font-size: 12px;
 }
 
 .buttons {
   text-align: center;
   margin-top: 50px;
-  align-self: center;
-  justify-content: space-around;
-}
-
-button {
-  border-radius: 5px;
 }
 
 /* Signed-page */
