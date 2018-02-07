@@ -25,7 +25,7 @@ var database = firebase.database();
 // =========== POPULATES 'YOUR SAVED JOBS' TABLE ON PAGE LOAD......
 
 // firebase watcher & initial loader
-database.ref().on("child_added", function(snapshot) {
+database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 	// creating variable to call the output pathway
 	var snap = snapshot.val();
 
@@ -57,6 +57,7 @@ database.ref().on("child_added", function(snapshot) {
 			newRow.append("<td class='table-positionName'>" + response.name + "</td>");
 			newRow.append("<td class='table-dateApplied'>" + snap.dateApplied + "</td>");
 			newRow.append("<td class='table-status'>" + snap.status + "</td>");
+			newRow.append("<td><button class='view-job'>View</button></td>");
 			newRow.append("<td><button class='remove-job'>X</button></td>");
 
 			// appends newRow to table body
@@ -81,8 +82,8 @@ database.ref().on("child_added", function(snapshot) {
 
 	// need to make this so on click, pulls id from the row and populates below with....
 	
-	$(document).on("click", ".job-row", function() {
-		var activeID = $(this).attr("data-fireID");
+	$(document).on("click", ".view-job", function() {
+		var activeID = $(this).parent().parent().attr("data-fireID");
 
 		database.ref().on("child_added", function(snapshot) {
 			var snap = snapshot.val();
@@ -183,7 +184,8 @@ database.ref().on("child_added", function(snapshot) {
 			jobID: jobID,
 			dateApplied: "Not Submitted",
 			appSummary: "",
-			status: "Need to Research"
+			status: "Need to Research",
+			dateAdded: firebase.database.ServerValue.TIMESTAMP
 		})
 
 	});
@@ -203,17 +205,6 @@ database.ref().on("child_added", function(snapshot) {
 		$(this).closest("tr").remove();
 
 	})
-
-
-
-
-
-
-
-
-
-
-
 
 
 
