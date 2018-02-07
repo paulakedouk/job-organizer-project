@@ -1,6 +1,6 @@
 
   
-
+//  AJAX call to Muse API, to be used in search
 
 function ajaxMuse () {
 
@@ -22,14 +22,8 @@ function ajaxMuse () {
 		console.log(response.results[0].contents);
 		console.log(response)
 
-	});
-};
-
-
-
-
-ajaxMuse();
-
+		});
+	};
 
 
 
@@ -37,8 +31,8 @@ ajaxMuse();
 // =============================
 
 
-  // Initialize Firebase
-  var config = {
+ // Initialize Firebase
+ var config = {
     apiKey: "AIzaSyCyrwud0YbX4UU9gqsiBsexs5EgneeZZ04",
     authDomain: "project-1-240fe.firebaseapp.com",
     databaseURL: "https://project-1-240fe.firebaseio.com",
@@ -52,7 +46,9 @@ ajaxMuse();
 var database = firebase.database();
 
 
-// function to dynamically trigger new HTML rows
+
+
+// temp function to generate firebase entry
 $("#button").on("click", function(){
 	// don't refresh the page!
 	event.preventDefault();
@@ -63,10 +59,9 @@ $("#button").on("click", function(){
 		dateApplied: "12/31/2017",
 		appSummary: "Emailed recruiter on 1/1/14",
 		Status: "Waiting for response."
+		});
 
 	});
-
-})
 
 
 
@@ -74,9 +69,34 @@ $("#button").on("click", function(){
 
 // firebase watcher & initial loader
 database.ref().on("child_added", function(snapshot) {
+	// creating variable to call the output pathway
 	var snap = snapshot.val();
-	console.log(snap);
 
+	// populates html fields with user input data from firebase
+	$("#date-applied").html(snap.dateApplied);
+	$("#app-summary").html(snap.appSummary);
+	$("#status").html(snap.Status);
+
+
+	// ajax call to populate job posting data from jobID saved in firebase
+	
+	// creating variable to store jobID from firebase
+	var jobID = snap.jobID;
+
+	var queryURL = "https://api-v2.themuse.com/jobs/" + jobID
+
+	$.ajax({
+		url: queryURL,
+		method: "GET"
+	}).then(function(response){
+
+		$(".company-name").html(response.company.name);
+		$(".job-position").html(response.name);
+		$(".job-description").html(response.contents);
+		// adds attribute to map class storing the city from Muse API, to be used with google maps api
+		$(".map").attr("data-city", response.locations[0].name)
+
+		});
 
 
 }, function(errorOnject) {
