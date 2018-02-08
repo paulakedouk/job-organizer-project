@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Job Organizer</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+
+    <!-- jQuery library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+
+</head>
+
+<body class="saved-jobs">
+    <div class="container">
+        <!-- <h1>Your saved jobs</h1> -->
+        <table class="rtable">
+            <thead>
+                <tr>
+                    <th>Company</th>
+                    <th>Position</th>
+                    <th>Date Applied</th>
+                    <th>Status</th>
+                    <th>Detail</th>
+                    <th>Remove</th>
+                </tr>
+            </thead>
+            <tbody class="tbody">
+
+            </tbody>
+        </table>
+    </div>
+
+    
+    <!-- job view -->
+    <div class="job-view">
+        <div class="container-company">
+            <div class="company-info">
+                <div>
+                    <h1>Company:
+                        <span class="company-name"></span>
+                    </h1>
+                </div>
+                <h1>Position:
+                    <span class="job-position"></span>
+                </h1>
+                <div>Description:
+                    <div class="job-description"></div>
+                </div>
+                <div class="map">Location</div>
+            </div>
+            <div class="table-application">
+                <div>Date applied:
+                    <span id="date-applied"></span>
+                </div>
+                <div>Application Summary:
+                    <span id="app-summary"></span>
+                </div>
+                <div>Status:
+                    <span id="status"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+<script src="assets/js/app.js"></script>
+    
+</body>
+
+</html>
