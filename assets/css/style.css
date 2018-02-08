@@ -164,3 +164,56 @@ body {
   width: 50%;
   padding-right: 20px;
 }
+
+.table-job {
+  width: 780px;
+  margin: 0 auto;
+  background: white;
+  margin-top: 60px;
+  padding: 20px;
+}
+
+.rtable {
+  width: 100%;
+}
+
+.table-job h2 {
+  font-size: 15px;
+  color: gray;
+  margin-bottom: 15px;
+}
+
+.table-job thead {
+  text-align: left;
+  background: #f5f5f5;
+  color: #b2b2b2;
+  line-height: 45px;
+  text-transform: uppercase;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+tbody th,
+tbody td {
+  padding: 20px 0;
+  font-size: 14px;
+}
+
+tbody tr {
+  border-bottom: 1px solid #ddd;
+}
+
+tbody tr:last-child {
+  border: none;
+}
+
+thead th,
+thead td,
+tbody th,
+tbody td {
+  padding-left: 20px;
+}
+
+a {
+  text-decoration: none;
+}
