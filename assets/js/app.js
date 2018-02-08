@@ -22,7 +22,7 @@ var database = firebase.database();
 
 
 
-// =========== POPULATES 'YOUR SAVED JOBS' TABLE ON PAGE LOAD......
+// =========== DASHBOARD - POPULATES 'YOUR SAVED JOBS' TABLE ON PAGE LOAD......
 
 // firebase watcher & initial loader
 database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
@@ -62,8 +62,8 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 			// newRow.append("<td><button class='remove-job'>X</button></td>");
 
 			// appends newRow to table body
-			// $("").append(newRow)
-			// $("").append("<tr class='spacer'></tr>");
+			$(".saved-jobs").append(newRow)
+			$(".saved-jobs").append("<tr class='spacer'></tr>");
 
 		});
 
@@ -102,17 +102,17 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 	 	method: "GET"
 	 }).then(function(response){
 
-	 	$(".company").text(response.company.name);
-	 	$(".job-").text(response.name);
-	 	$(".job-description").html("<h3>Description</h3><p class='job-p'>" + response.contents + "</p><button>...Learn more</button>");
+	 	$("#company-name").text(response.company.name);
+	 	$("#job-name").text(response.name);
+	 	$("#job-description").html("<h3>Description</h3><p class='job-p'>" + response.contents + "</p><button>...Learn more</button>");
 	 	// adds attribute to map class storing the city from Muse API, to be used with google maps api
-	 	$(".map").attr("data-city", response.locations[0].name)
+	 	// $(".map").attr("data-city", response.locations[0].name)
 
 	 	// populates job-view html fields with user input data from firebase
 	 	// put here so it doesn't run until after the AJAX call is complete
-	  	$("#date-applied").html(snap.dateApplied);
-	  	$("#app-summary").html(snap.appSummary);
-	  	$("#status").html(snap.Status);
+	  	$("#date-applied").text(snap.dateApplied);
+	  	$("#app-summary").text(snap.appSummary);
+	  	$("#status").text(snap.Status);
 
 	 	});
 
