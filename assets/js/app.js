@@ -83,7 +83,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 	// need to make this so on click, pulls id from the row and populates below with....
 	
 	$(document).on("click", ".view-job", function() {
-		var activeID = $(this).parent().parent().attr("data-fireID");
+		var activeID = $(this).parent().parent().attr("data-jobID");
 
 		database.ref().on("child_added", function(snapshot) {
 			var snap = snapshot.val();
