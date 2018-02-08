@@ -154,8 +154,8 @@ body {
   margin-top: 36px;
   width: 50%;
   float: left;
-  font-weight: 500;
-  font-size: 25px;
+  font-weight: 400;
+  font-size: 20px;
   padding-left: 20px;
 }
 
@@ -216,4 +216,9 @@ tbody td {
 
 a {
   text-decoration: none;
+}
+
+.calendar-img {
+  margin-top: 76px;
+  text-align: center;
 }
