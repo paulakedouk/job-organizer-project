@@ -321,3 +321,16 @@ form input {
   margin-top: 30px;
   display: inherit;
 }
+
+.dropdown {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.dropdown select {
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  color: gray;
+  height: 40px;
+}
