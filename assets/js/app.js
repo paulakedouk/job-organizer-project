@@ -62,8 +62,8 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 			// newRow.append("<td><button class='remove-job'>X</button></td>");
 
 			// appends newRow to table body
-			$(".tbody").append(newRow)
-			$(".tbody").append("<tr class='spacer'></tr>");
+			// $("").append(newRow)
+			// $("").append("<tr class='spacer'></tr>");
 
 		});
 
@@ -124,17 +124,17 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 
 
-// 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ Add-Job.html
+// 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ search-job.html
 
 // ========== AJAX SEARCH TO GENERATE LIST OF JOBS TO ADD TO SAVED TABLE
 
-	// listener for a submit of the search form.
-	$("#submit-search").on("click", function() {
-		// prevents page from refresh when submit button is hit
+	// listener for a change to the #position-dropdown select div
+	$("#position-dropdown").on("change", function() {
+		// prevents page from refresh when submit button is hit (might not need this with dropdown)
 		event.preventDefault();
 
-		var userCategory = $("#category-input").val().trim();
-
+		// assigns value of the dropdown to a variable
+		var userCategory = $(this).val()
 
 	//  AJAX call to Muse API, to be used in search
 
@@ -152,6 +152,9 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 				method: "GET"
 			}).then(function(response){
 
+				// clears previous results from table, put here so less of a delay when outside of AJAX call
+				$(".search-results").empty();
+
 				for (var i = 0; i <= response.results.length; i++) {
 					// create new row
 					var newRow = $("<tr>");
@@ -160,11 +163,13 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 					newRow.append("<td>" + response.results[i].company.name + "</td>");
 					newRow.append("<td>" + response.results[i].name + "</td>");
 					newRow.append("<td>"+ response.results[i].locations[0].name + "</td>");
-					newRow.append("<td><button class='add-button'>Add</button><td>")
+					newRow.append("<td><button class='add-btn add-button'>Add Job</button><td>")
+
 
 
 					// append it onto the search-body tably
-					$(".search-body").append(newRow);
+					$(".search-results").append(newRow);
+					$(".search-results").append("<tr class='spacer'></tr>")
 					};
 
 				});
