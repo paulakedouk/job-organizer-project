@@ -222,3 +222,62 @@ a {
   margin-top: 76px;
   text-align: center;
 }
+
+/* Company page */
+
+.company {
+  background: white;
+  max-width: 800px;
+  margin: 76px auto;
+  padding: 30px;
+  overflow: auto;
+}
+
+.company h2 {
+  font-size: 25px;
+  margin-bottom: 8px;
+}
+
+.job-p {
+  color: gray;
+  margin-bottom: 20px;
+}
+
+.job-description h3 {
+  text-decoration: underline;
+  margin-bottom: 10px;
+}
+
+.job-description p {
+  font-size: 14px;
+}
+
+.job-description button {
+  float: right;
+  border: none;
+  text-decoration: none;
+}
+
+.form-info {
+  margin-top: 100px;
+}
+
+.input {
+  border-left: 5px solid #242323;
+  padding: 10px;
+  font-size: 16px;
+}
+
+.input h4 {
+  float: left;
+}
+
+.input span {
+  margin-left: 20px;
+  font-weight: 200;
+}
+
+.input p {
+  font-size: 12px;
+  color: gray;
+}
