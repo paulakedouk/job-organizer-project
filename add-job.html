@@ -10,9 +10,55 @@
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
-<body class="add-job">
-    <div class="container">
-
+<body class="signed-page">
+    <div class="sidenav">
+        <h2>The Job Organizer</h2>
+        <div class="sidenav-btn">
+            <div class="icon">
+                <img src="assets/images/dashboard.svg" alt="Dashboard icon">
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+            <div class="icon">
+                <img src="assets/images/add-job.svg" alt="Add job icon">
+                <a href="add-job.html">Add new job</a>
+            </div>
+            <div class="icon">
+                <img src="assets/images/calendar.svg" alt="Calendar icon">
+                <a href="calendar.html">Calendar</a>
+            </div>
+        </div>
+    </div>
+    <div class="add-form centralized">
+        <div class="new-job">
+            <h2>Add a new job</h2>
+            <form>
+                <input type="text" id="input1" placeholder="Date applied - MM/DD/YYYY">
+                <label class="input-label" for="input1">
+                    Date if you applied for the job.
+                </label>
+                <input type="text" id="input2" placeholder="Contact">
+                <label class="input-label" for="input2">
+                    Point of contact at the company.
+                </label>
+                <input type="text" id="input3" placeholder="Application summary">
+                <label class="input-label" for="input3">
+                    What you submitted, like a cover letter, resume, and any additional materials.
+                </label>
+                <input type="text" id="input4" placeholder="Interview">
+                <label class="input-label" for="input4">
+                    When your interview is scheduled.
+                </label>
+                <input type="text" id="input5" placeholder="Follow up">
+                <label class="input-label" for="input5">
+                    If you send a thank you email.
+                </label>
+                <input type="text" id="input6" placeholder="Status">
+                <label class="input-label" for="input6">
+                    If you were rejected, offered the job, asked in for a second interview, etc.
+                </label>
+                <input type="button" class="save-btn" value="Save">
+            </form>
+        </div>
     </div>
 </body>
 

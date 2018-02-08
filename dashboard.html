@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>The Job Organizer</title>
+    <link rel="stylesheet" href="assets/css/reset.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body class="signed-page">
+    <div class="sidenav">
+        <h2>The Job Organizer</h2>
+        <div class="sidenav-btn">
+            <div class="icon">
+                <img src="assets/images/dashboard.svg" alt="Dashboard icon">
+                <a href="dashboard.html">Dashboard</a>
+            </div>
+            <div class="icon">
+                <img src="assets/images/add-job.svg" alt="Add job icon">
+                <a href="add-job.html">Add new job</a>
+            </div>
+            <div class="icon">
+                <img src="assets/images/calendar.svg" alt="Calendar icon">
+                <a href="calendar.html">Calendar</a>
+            </div>
+        </div>
+    </div>
+    <div class="centralized">
+        <div class="container-dashboard">
+            <div class="total-applied">
+                <h3>Total applied</h3>
+                <p>12 jobs</p>
+                <img src="assets/images/chart-blue.svg" alt="Chart Blue Img">
+            </div>
+            <div class="scheduled-interview">
+                <h3>Scheduled Inverview</h3>
+                <p>3 interviews</p>
+                <img src="assets/images/chart-purple.svg" alt="Chart Blue Img">
+            </div>
+        </div>
+        <div class="table-job">
+            <table class="rtable">
+                <h2>Your saved jobs</h2>
+                <thead>
+                    <tr>
+                        <th>Company</th>
+                        <th>Position</th>
+                        <th>Date Applied</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody class="tbody">
+                    <tr>
+                        <td>
+                            <a href="job-view.html">Airbnb</a>
+                        </td>
+                        <td>Developer</td>
+                        <td>02/12/2018</td>
+                        <td>Waiting for response</td>
+                    </tr>
+                    <tr class="spacer"></tr>
+                    <tr>
+                        <td>Facebook</td>
+                        <td>Front-end Developer</td>
+                        <td>02/20/2018</td>
+                        <td>Interview scheduled</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</body>
+
+</html>
