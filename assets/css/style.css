@@ -334,3 +334,27 @@ form input {
   color: gray;
   height: 40px;
 }
+
+/* Search job page */
+
+.dropdown-search {
+  text-align: center;
+}
+
+.add-btn {
+  background: #242323;
+  color: white !important;
+  width: 100px;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.dropdown-search select {
+  margin-top: 56px;
+}
+
+.table-search {
+  margin-top: 77px;
+}
