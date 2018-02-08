@@ -83,11 +83,12 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 	// need to make this so on click, pulls id from the row and populates below with....
 	
-	$(document).on("click", "table-companyName", function() {
-		var activeID = $(this).parent().parent().attr("data-jobID");
-
+	$(document).on("click", ".table-companyName", function() {
+		var activeJobID = $(this).parent().attr("data-jobID");
+		var activeFireID = $(this).parent().attr("data-fireID");
 		database.ref().on("child_added", function(snapshot) {
 			var snap = snapshot.val();
+
 
 
 	 // ajax call to populate job posting data from jobID saved in firebase
