@@ -57,8 +57,9 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 			newRow.append("<td class='table-positionName'>" + response.name + "</td>");
 			newRow.append("<td class='table-dateApplied'>" + snap.dateApplied + "</td>");
 			newRow.append("<td class='table-status'>" + snap.status + "</td>");
-			newRow.append("<td><button class='view-job'>View</button></td>");
-			newRow.append("<td><button class='remove-job'>X</button></td>");
+			// commenting these buttons out for now
+			// newRow.append("<td><button class='view-job'>View</button></td>");
+			// newRow.append("<td><button class='remove-job'>X</button></td>");
 
 			// appends newRow to table body
 			$(".tbody").append(newRow)
@@ -82,7 +83,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 	// need to make this so on click, pulls id from the row and populates below with....
 	
-	$(document).on("click", ".view-job", function() {
+	$(document).on("click", "table-companyName", function() {
 		var activeID = $(this).parent().parent().attr("data-jobID");
 
 		database.ref().on("child_added", function(snapshot) {
@@ -101,9 +102,9 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 	 	method: "GET"
 	 }).then(function(response){
 
-	 	$(".company-name").html(response.company.name);
-	 	$(".job-position").html(response.name);
-	 	$(".job-description").html(response.contents);
+	 	$(".company").text(response.company.name);
+	 	$(".job-").text(response.name);
+	 	$(".job-description").html("<h3>Description</h3><p class='job-p'>" + response.contents + "</p><button>...Learn more</button>");
 	 	// adds attribute to map class storing the city from Muse API, to be used with google maps api
 	 	$(".map").attr("data-city", response.locations[0].name)
 
