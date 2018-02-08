@@ -8,11 +8,6 @@
     <title>The Job Organizer</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- jQuery library-->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <!-- Firebase Reference -->
-    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
-
 </head>
 
 <body class="signed-page">
@@ -28,6 +23,10 @@
                 <a href="add-job.html">Add new job</a>
             </div>
             <div class="icon">
+                <img src="assets/images/search-icon.svg" alt="Search icon">
+                <a href="search-job.html">Search job</a>
+            </div>
+            <div class="icon">
                 <img src="assets/images/calendar.svg" alt="Calendar icon">
                 <a href="calendar.html">Calendar</a>
             </div>
@@ -41,33 +40,55 @@
                 <label class="input-label" for="input1">
                     Date if you applied for the job.
                 </label>
-                <input type="text" id="input2" placeholder="Contact">
-                <label class="input-label" for="input2">
+                <div class="dropdown">
+                    <select name="position" id="position-dropdown">
+                        <option value="" disabled selected>Select a job position</option>
+                        <option value="account-management">Account Management</option>
+                        <option value="business">Business & Strategy</option>
+                        <option value="creative-design">Creative & Design</option>
+                        <option value="costumer-service">Costumer Service</option>
+                        <option value="data-science">Data Science</option>
+                        <option value="editorial">Editorial</option>
+                        <option value="education">Education</option>
+                        <option value="engineering">Engineering</option>
+                        <option value="finance">Finance</option>
+                        <option value="fundraising-development">Fundraising & Development</option>
+                        <option value="healthcare-medicine">Healthcare & Medicine</option>
+                        <option value="hr-recruiting">HR & Recruiting</option>
+                        <option value="legal">Legal</option>
+                        <option value="marketing-pr">Marketing & PR</option>
+                        <option value="operations">Operations</option>
+                        <option value="project-product-management">Project & Product Management</option>
+                        <option value="retail">Retail</option>
+                        <option value="sales">Sales</option>
+                        <option value="social-media-community">Social Media & Community</option>
+                    </select>
+
+                </div>
+                <input type="text" id="input3" placeholder="Contact">
+                <label class="input-label" for="input3">
                     Point of contact at the company.
                 </label>
-                <input type="text" id="input3" placeholder="Application summary">
-                <label class="input-label" for="input3">
+                <input type="text" id="input4" placeholder="Application summary">
+                <label class="input-label" for="input4">
                     What you submitted, like a cover letter, resume, and any additional materials.
                 </label>
-                <input type="text" id="input4" placeholder="Interview">
-                <label class="input-label" for="input4">
+                <input type="text" id="input5" placeholder="Interview">
+                <label class="input-label" for="input5">
                     When your interview is scheduled.
                 </label>
-                <input type="text" id="input5" placeholder="Follow up">
-                <label class="input-label" for="input5">
+                <input type="text" id="input6" placeholder="Follow up">
+                <label class="input-label" for="input6">
                     If you send a thank you email.
                 </label>
-                <input type="text" id="input6" placeholder="Status">
-                <label class="input-label" for="input6">
+                <input type="text" id="input7" placeholder="Status">
+                <label class="input-label" for="input7">
                     If you were rejected, offered the job, asked in for a second interview, etc.
                 </label>
                 <input type="button" class="save-btn" value="Save">
             </form>
         </div>
     </div>
-
-<script src="assets/js/app.js"></script>
-
 </body>
 
 </html>
