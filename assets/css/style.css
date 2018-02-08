@@ -73,9 +73,13 @@ body {
 
 /* Signed-page */
 
+.signed-page {
+  background: #d3d3d3;
+}
+
 .sidenav {
   height: 100%;
-  width: 240px;
+  width: 20%;
   position: fixed;
   z-index: 1;
   top: 0;
@@ -110,4 +114,53 @@ body {
   position: absolute;
   width: 16px;
   margin: 18px;
+}
+
+.centralized {
+  width: 80%;
+  float: right;
+}
+
+.container-dashboard {
+  display: flex;
+  justify-content: center;
+}
+
+.total-applied {
+  margin-right: 20px;
+}
+
+.scheduled-interview {
+  margin-left: 20px;
+}
+
+.total-applied,
+.scheduled-interview {
+  width: 370px;
+  height: 117px;
+  background: white;
+  margin-top: 76px;
+}
+
+.total-applied h3,
+.scheduled-interview h3 {
+  font-size: 15px;
+  color: gray;
+  padding: 20px 0 0 20px;
+}
+
+.total-applied p,
+.scheduled-interview p {
+  margin-top: 36px;
+  width: 50%;
+  float: left;
+  font-weight: 500;
+  font-size: 25px;
+  padding-left: 20px;
+}
+
+.total-applied img,
+.scheduled-interview img {
+  width: 50%;
+  padding-right: 20px;
 }
