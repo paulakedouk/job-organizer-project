@@ -1,0 +1,446 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="379 2160.496 818 605.35">
+  <defs>
+    <style>
+      .cls-1, .cls-16, .cls-2, .cls-8 {
+        fill: #fff;
+      }
+
+      .cls-2 {
+        stroke: #e3e3e3;
+      }
+
+      .cls-11, .cls-15, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-9 {
+        fill: #646464;
+      }
+
+      .cls-3, .cls-9 {
+        font-size: 8px;
+      }
+
+      .cls-11, .cls-16, .cls-3, .cls-4, .cls-5, .cls-6, .cls-7, .cls-9 {
+        font-family: SourceSansPro-Regular, Source Sans Pro;
+      }
+
+      .cls-11, .cls-16, .cls-4 {
+        font-size: 7px;
+      }
+
+      .cls-13, .cls-5 {
+        font-size: 6px;
+      }
+
+      .cls-6 {
+        font-size: 10px;
+      }
+
+      .cls-7 {
+        font-size: 11px;
+      }
+
+      .cls-10, .cls-8 {
+        stroke: #f5f5f5;
+      }
+
+      .cls-11, .cls-9 {
+        opacity: 0.3;
+      }
+
+      .cls-10 {
+        fill: #f5f5f5;
+      }
+
+      .cls-12, .cls-13, .cls-14 {
+        fill: #b2b2b2;
+        font-family: SourceSansPro-Bold, Source Sans Pro;
+        font-weight: 700;
+      }
+
+      .cls-12 {
+        font-size: 5px;
+      }
+
+      .cls-14 {
+        font-size: 4px;
+      }
+
+      .cls-17 {
+        stroke: none;
+      }
+
+      .cls-18 {
+        fill: none;
+      }
+
+      .cls-19 {
+        filter: url(#Selectbox.BG-2);
+      }
+
+      .cls-20 {
+        filter: url(#Selectbox.BG);
+      }
+
+      .cls-21 {
+        filter: url(#Calendar.BG);
+      }
+    </style>
+    <filter id="Calendar.BG" x="379" y="2160.496" width="818" height="605.35" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feFlood flood-opacity="0.039"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Selectbox.BG" x="990.09" y="2178.671" width="188.734" height="30.88" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1.5" result="blur-2"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Selectbox.BG-2" x="397.27" y="2203.97" width="141.555" height="30.88" filterUnits="userSpaceOnUse">
+      <feOffset dy="2" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="1.5" result="blur-3"/>
+      <feFlood flood-opacity="0.051"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_48" data-name="Group 48" transform="translate(19 2095)">
+    <g class="cls-21" transform="matrix(1, 0, 0, 1, -19, -2095)">
+      <rect id="Calendar.BG-2" data-name="Calendar.BG" class="cls-1" width="800" height="587.35" transform="translate(388 2167.5)"/>
+    </g>
+    <g id="Calendar.Filter" transform="translate(975.59 86.171)">
+      <g class="cls-20" transform="matrix(1, 0, 0, 1, -994.59, -2181.17)">
+        <g id="Selectbox.BG-3" data-name="Selectbox.BG" class="cls-2" transform="translate(994.59 2181.17)">
+          <rect class="cls-17" width="179.734" height="21.88" rx="4"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="178.734" height="20.88" rx="3.5"/>
+        </g>
+      </g>
+      <g id="Selectbox.BG-4" data-name="Selectbox.BG" class="cls-2" transform="translate(0)">
+        <path class="cls-17" d="M4,0H47.085a0,0,0,0,1,0,0V21.88a0,0,0,0,1,0,0H4a4,4,0,0,1-4-4V4A4,4,0,0,1,4,0Z"/>
+        <path class="cls-18" d="M4,.5H46.085a.5.5,0,0,1,.5.5V20.88a.5.5,0,0,1-.5.5H4a3.5,3.5,0,0,1-3.5-3.5V4A3.5,3.5,0,0,1,4,.5Z"/>
+      </g>
+      <g id="Selectbox.BG-5" data-name="Selectbox.BG" class="cls-2" transform="translate(88.205)">
+        <rect class="cls-17" width="38.88" height="21.88"/>
+        <rect class="cls-18" x="0.5" y="0.5" width="37.88" height="20.88"/>
+      </g>
+      <text id="Month" class="cls-3" transform="translate(22.529 13.47)"><tspan x="-10.772" y="0">Month</tspan></text>
+      <text id="Week" class="cls-4" transform="translate(66.025 12.47)"><tspan x="-7.938" y="0">Week</tspan></text>
+      <text id="Day" class="cls-5" transform="translate(105.418 11.47)"><tspan x="-4.773" y="0">Day</tspan></text>
+      <text id="Agenda" class="cls-4" transform="translate(151.076 12.47)"><tspan x="-10.983" y="0">Agenda</tspan></text>
+    </g>
+    <g id="Calendar.Filter-2" data-name="Calendar.Filter" transform="translate(382.77 111.47)">
+      <g class="cls-19" transform="matrix(1, 0, 0, 1, -401.77, -2206.47)">
+        <g id="Selectbox.BG-6" data-name="Selectbox.BG" class="cls-2" transform="translate(401.77 2206.47)">
+          <rect class="cls-17" width="132.555" height="21.88" rx="4"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="131.555" height="20.88" rx="3.5"/>
+        </g>
+      </g>
+      <g id="Selectbox.BG-7" data-name="Selectbox.BG" class="cls-2" transform="translate(0)">
+        <path class="cls-17" d="M4,0H47.085a0,0,0,0,1,0,0V21.88a0,0,0,0,1,0,0H4a4,4,0,0,1-4-4V4A4,4,0,0,1,4,0Z"/>
+        <path class="cls-18" d="M4,.5H46.085a.5.5,0,0,1,.5.5V20.88a.5.5,0,0,1-.5.5H4a3.5,3.5,0,0,1-3.5-3.5V4A3.5,3.5,0,0,1,4,.5Z"/>
+      </g>
+      <g id="Selectbox.BG-8" data-name="Selectbox.BG" class="cls-2" transform="translate(46.496)">
+        <rect class="cls-17" width="39.563" height="21.88"/>
+        <rect class="cls-18" x="0.5" y="0.5" width="38.563" height="20.88"/>
+      </g>
+      <text id="Today" class="cls-3" transform="translate(22.213 13.47)"><tspan x="-10.164" y="0">Today</tspan></text>
+      <text id="Back" class="cls-4" transform="translate(64.341 12.47)"><tspan x="-7.161" y="0">Back</tspan></text>
+      <text id="Next" class="cls-4" transform="translate(106.051 12.47)"><tspan x="-6.702" y="0">Next</tspan></text>
+    </g>
+    <text id="Calendar_View" data-name="Calendar View" class="cls-6" transform="translate(382.675 95.487)"><tspan x="0" y="0">Calendar View</tspan></text>
+    <text id="January_2018" data-name="January 2018" class="cls-7" transform="translate(765.812 125.889)"><tspan x="-30.866" y="0">January 2018</tspan></text>
+    <g id="calendar" transform="translate(382.675 147.026)">
+      <g id="Date" transform="translate(0 30.085)">
+        <g id="Rectangle_145" data-name="Rectangle 145" class="cls-8">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_31" data-name="31" class="cls-9" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">31</tspan></text>
+      </g>
+      <g id="Date-2" data-name="Date" transform="translate(0 121.709)">
+        <g id="Rectangle_145-2" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_7" data-name="7" class="cls-4" transform="translate(99.41 18.624)"><tspan x="-3.479" y="0">7</tspan></text>
+      </g>
+      <g id="Date-3" data-name="Date" transform="translate(0 213.333)">
+        <g id="Rectangle_145-3" data-name="Rectangle 145" class="cls-8">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_14" data-name="14" class="cls-4" transform="translate(99.308 19.991)"><tspan x="-6.958" y="0">14</tspan></text>
+      </g>
+      <g id="Date-4" data-name="Date" transform="translate(0 304.957)">
+        <g id="Rectangle_145-4" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_21" data-name="21" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">21</tspan></text>
+      </g>
+      <g id="Date-5" data-name="Date" transform="translate(0 396.581)">
+        <g id="Rectangle_145-5" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_28" data-name="28" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">28</tspan></text>
+      </g>
+      <g id="Date-6" data-name="Date" transform="translate(110.085 30.085)">
+        <g id="Rectangle_145-6" data-name="Rectangle 145" class="cls-8">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_1" data-name="1" class="cls-4" transform="translate(99.41 18.624)"><tspan x="-3.479" y="0">1</tspan></text>
+      </g>
+      <g id="Date-7" data-name="Date" transform="translate(110.085 121.709)">
+        <g id="Rectangle_145-7" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_8" data-name="8" class="cls-4" transform="translate(99.41 18.624)"><tspan x="-3.479" y="0">8</tspan></text>
+      </g>
+      <g id="Date-8" data-name="Date" transform="translate(110.085 213.333)">
+        <g id="Rectangle_145-8" data-name="Rectangle 145" class="cls-8">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_15" data-name="15" class="cls-4" transform="translate(99.308 19.991)"><tspan x="-6.958" y="0">15</tspan></text>
+      </g>
+      <g id="Date-9" data-name="Date" transform="translate(110.085 304.957)">
+        <g id="Rectangle_145-9" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_22" data-name="22" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">22</tspan></text>
+      </g>
+      <g id="Date-10" data-name="Date" transform="translate(110.085 396.581)">
+        <g id="Rectangle_145-10" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_29" data-name="29" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">29</tspan></text>
+      </g>
+      <g id="Date-11" data-name="Date" transform="translate(219.487 30.085)">
+        <g id="Rectangle_145-11" data-name="Rectangle 145" class="cls-10">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_2" data-name="2" class="cls-4" transform="translate(99.41 18.624)"><tspan x="-3.479" y="0">2</tspan></text>
+      </g>
+      <g id="Date-12" data-name="Date" transform="translate(219.487 121.709)">
+        <g id="Rectangle_145-12" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_9" data-name="9" class="cls-4" transform="translate(99.41 18.624)"><tspan x="-3.479" y="0">9</tspan></text>
+      </g>
+      <g id="Date-13" data-name="Date" transform="translate(219.487 213.333)">
+        <g id="Rectangle_145-13" data-name="Rectangle 145" class="cls-8">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_16" data-name="16" class="cls-4" transform="translate(99.308 19.991)"><tspan x="-6.958" y="0">16</tspan></text>
+      </g>
+      <g id="Date-14" data-name="Date" transform="translate(219.487 304.957)">
+        <g id="Rectangle_145-14" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_23" data-name="23" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">23</tspan></text>
+      </g>
+      <g id="Date-15" data-name="Date" transform="translate(219.487 396.581)">
+        <g id="Rectangle_145-15" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_30" data-name="30" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">30</tspan></text>
+      </g>
+      <g id="Date-16" data-name="Date" transform="translate(329.573 30.085)">
+        <g id="Rectangle_145-16" data-name="Rectangle 145" class="cls-8">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_3" data-name="3" class="cls-4" transform="translate(99.41 18.624)"><tspan x="-3.479" y="0">3</tspan></text>
+      </g>
+      <g id="Date-17" data-name="Date" transform="translate(329.573 121.709)">
+        <g id="Rectangle_145-17" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_10" data-name="10" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">10</tspan></text>
+      </g>
+      <g id="Date-18" data-name="Date" transform="translate(329.573 213.333)">
+        <g id="Rectangle_145-18" data-name="Rectangle 145" class="cls-8">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_17" data-name="17" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">17</tspan></text>
+      </g>
+      <g id="Date-19" data-name="Date" transform="translate(329.573 304.957)">
+        <g id="Rectangle_145-19" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_24" data-name="24" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">24</tspan></text>
+      </g>
+      <g id="Date-20" data-name="Date" transform="translate(329.573 396.581)">
+        <g id="Rectangle_145-20" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_31-2" data-name="31" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">31</tspan></text>
+      </g>
+      <g id="Date-21" data-name="Date" transform="translate(440.342 30.085)">
+        <g id="Rectangle_145-21" data-name="Rectangle 145" class="cls-8">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_4" data-name="4" class="cls-4" transform="translate(99.41 18.624)"><tspan x="-3.479" y="0">4</tspan></text>
+      </g>
+      <g id="Date-22" data-name="Date" transform="translate(440.342 121.709)">
+        <g id="Rectangle_145-22" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_11" data-name="11" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">11</tspan></text>
+      </g>
+      <g id="Date-23" data-name="Date" transform="translate(440.342 213.333)">
+        <g id="Rectangle_145-23" data-name="Rectangle 145" class="cls-8">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_18" data-name="18" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">18</tspan></text>
+      </g>
+      <g id="Date-24" data-name="Date" transform="translate(440.342 304.957)">
+        <g id="Rectangle_145-24" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_25" data-name="25" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">25</tspan></text>
+      </g>
+      <g id="Date-25" data-name="Date" transform="translate(440.342 396.581)">
+        <g id="Rectangle_145-25" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_1-2" data-name="1" class="cls-11" transform="translate(99.41 18.624)"><tspan x="-3.479" y="0">1</tspan></text>
+      </g>
+      <g id="Date-26" data-name="Date" transform="translate(551.111 30.085)">
+        <g id="Rectangle_145-26" data-name="Rectangle 145" class="cls-8" transform="translate(0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_5" data-name="5" class="cls-4" transform="translate(99.41 18.624)"><tspan x="-3.479" y="0">5</tspan></text>
+      </g>
+      <g id="Date-27" data-name="Date" transform="translate(551.111 121.709)">
+        <g id="Rectangle_145-27" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_12" data-name="12" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">12</tspan></text>
+      </g>
+      <g id="Date-28" data-name="Date" transform="translate(551.111 213.333)">
+        <g id="Rectangle_145-28" data-name="Rectangle 145" class="cls-8" transform="translate(0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_19" data-name="19" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">19</tspan></text>
+      </g>
+      <g id="Date-29" data-name="Date" transform="translate(551.111 304.957)">
+        <g id="Rectangle_145-29" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_26" data-name="26" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">26</tspan></text>
+      </g>
+      <g id="Date-30" data-name="Date" transform="translate(551.111 396.581)">
+        <g id="Rectangle_145-30" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_2-2" data-name="2" class="cls-11" transform="translate(99.41 18.624)"><tspan x="-3.479" y="0">2</tspan></text>
+      </g>
+      <g id="Date-31" data-name="Date" transform="translate(661.197 30.085)">
+        <g id="Rectangle_145-31" data-name="Rectangle 145" class="cls-8" transform="translate(0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_6" data-name="6" class="cls-4" transform="translate(99.41 18.624)"><tspan x="-3.479" y="0">6</tspan></text>
+      </g>
+      <g id="Date-32" data-name="Date" transform="translate(661.197 121.709)">
+        <g id="Rectangle_145-32" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_13" data-name="13" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">13</tspan></text>
+      </g>
+      <g id="Date-33" data-name="Date" transform="translate(661.197 213.333)">
+        <g id="Rectangle_145-33" data-name="Rectangle 145" class="cls-8" transform="translate(0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_20" data-name="20" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">20</tspan></text>
+      </g>
+      <g id="Date-34" data-name="Date" transform="translate(661.197 304.957)">
+        <g id="Rectangle_145-34" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_27" data-name="27" class="cls-3" transform="translate(98.94 19.624)"><tspan x="-7.952" y="0">27</tspan></text>
+      </g>
+      <g id="Date-35" data-name="Date" transform="translate(661.197 396.581)">
+        <g id="Rectangle_145-35" data-name="Rectangle 145" class="cls-8" transform="translate(0 0)">
+          <rect class="cls-17" width="111.222" height="92.308"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="110.222" height="91.308"/>
+        </g>
+        <text id="_3-2" data-name="3" class="cls-11" transform="translate(99.41 18.624)"><tspan x="-3.479" y="0">3</tspan></text>
+      </g>
+      <g id="Head">
+        <g id="Head.BG" class="cls-10">
+          <rect class="cls-17" width="772.419" height="30.769"/>
+          <rect class="cls-18" x="0.5" y="0.5" width="771.419" height="29.769"/>
+        </g>
+        <text id="SUN" class="cls-12" transform="translate(54.239 15.94)"><tspan x="-4.702" y="0">SUN</tspan></text>
+        <text id="MON" class="cls-13" transform="translate(163.957 16.94)"><tspan x="-6.324" y="0">MON</tspan></text>
+        <text id="TUE" class="cls-13" transform="translate(274.41 16.94)"><tspan x="-5.292" y="0">TUE</tspan></text>
+        <text id="WED" class="cls-13" transform="translate(384.811 16.94)"><tspan x="-5.976" y="0">WED</tspan></text>
+        <text id="THU" class="cls-12" transform="translate(494.581 15.94)"><tspan x="-4.725" y="0">THU</tspan></text>
+        <text id="FRI" class="cls-14" transform="translate(604.034 14.94)"><tspan x="-2.876" y="0">FRI</tspan></text>
+        <text id="SAT" class="cls-12" transform="translate(714.435 15.94)"><tspan x="-4.1" y="0">SAT</tspan></text>
+      </g>
+    </g>
+    <g id="EventName" transform="translate(603.53 203.778)">
+      <rect id="Rectangle_146" data-name="Rectangle 146" class="cls-15" width="108.718" height="20.513" rx="4"/>
+      <text id="Event_name" data-name="Event name" class="cls-16" transform="translate(9.573 11.786)"><tspan x="0" y="0">Event name</tspan></text>
+    </g>
+    <g id="EventName-2" data-name="EventName" transform="translate(383.359 386.342)">
+      <rect id="Rectangle_146-2" data-name="Rectangle 146" class="cls-15" width="108.718" height="20.513" rx="4"/>
+      <text id="Event_name-2" data-name="Event name" class="cls-16" transform="translate(9.573 11.786)"><tspan x="0" y="0">Event name</tspan></text>
+    </g>
+    <g id="EventName-3" data-name="EventName" transform="translate(383.359 570.957)">
+      <rect id="Rectangle_146-3" data-name="Rectangle 146" class="cls-15" width="108.718" height="20.513" rx="4" transform="translate(0 0)"/>
+      <text id="Event_name-3" data-name="Event name" class="cls-16" transform="translate(9.573 11.786)"><tspan x="0" y="0">Event name</tspan></text>
+    </g>
+    <g id="EventName-4" data-name="EventName" transform="translate(493.444 570.957)">
+      <rect id="Rectangle_146-4" data-name="Rectangle 146" class="cls-15" width="108.718" height="20.513" rx="4" transform="translate(0 0)"/>
+      <text id="Event_name-4" data-name="Event name" class="cls-16" transform="translate(9.573 11.786)"><tspan x="0" y="0">Event name</tspan></text>
+    </g>
+    <g id="EventName-5" data-name="EventName" transform="translate(824.385 203.778)">
+      <rect id="Rectangle_146-5" data-name="Rectangle 146" class="cls-15" width="108.718" height="20.513" rx="4" transform="translate(0)"/>
+      <text id="Event_name-5" data-name="Event name" class="cls-16" transform="translate(9.573 11.786)"><tspan x="0" y="0">Event name</tspan></text>
+    </g>
+    <g id="EventName-6" data-name="EventName" transform="translate(934.47 203.778)">
+      <rect id="Rectangle_146-6" data-name="Rectangle 146" class="cls-15" width="108.718" height="20.513" rx="4"/>
+      <text id="Event_name-6" data-name="Event name" class="cls-16" transform="translate(9.573 11.786)"><tspan x="0" y="0">Event name</tspan></text>
+    </g>
+    <g id="EventName-7" data-name="EventName" transform="translate(1045.239 387.709)">
+      <rect id="Rectangle_146-7" data-name="Rectangle 146" class="cls-15" width="108.718" height="20.513" rx="4"/>
+      <text id="Event_name-7" data-name="Event name" class="cls-16" transform="translate(9.573 11.786)"><tspan x="0" y="0">Event name</tspan></text>
+    </g>
+    <g id="EventName-8" data-name="EventName" transform="translate(934.47 224.974)">
+      <rect id="Rectangle_146-8" data-name="Rectangle 146" class="cls-15" width="108.718" height="20.513" rx="4" transform="translate(0 0)"/>
+      <text id="Event_name-8" data-name="Event name" class="cls-16" transform="translate(9.573 11.786)"><tspan x="0" y="0">Event name</tspan></text>
+    </g>
+  </g>
+</svg>
