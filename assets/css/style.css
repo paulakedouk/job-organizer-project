@@ -177,7 +177,8 @@ body {
   width: 100%;
 }
 
-.table-job h2 {
+.table-job h2,
+.new-job h2 {
   font-size: 15px;
   color: gray;
   margin-bottom: 15px;
@@ -259,7 +260,7 @@ a {
 }
 
 .form-info {
-  margin-top: 100px;
+  margin-top: 70px;
 }
 
 .input {
@@ -280,4 +281,43 @@ a {
 .input p {
   font-size: 12px;
   color: gray;
+}
+
+/* Add new job page */
+
+.new-job {
+  background: white;
+  max-width: 600px;
+  margin: 76px auto;
+  padding: 30px;
+  overflow: auto;
+}
+
+form input {
+  border: none;
+  padding: 5px 0;
+  display: flex;
+  font-size: 18px;
+  width: 535px;
+  border-bottom: 1px solid #ddd;
+  line-height: 30px;
+  margin-top: 10px;
+}
+
+.input-label {
+  font-size: 14px;
+  line-height: 30px;
+}
+
+.save-btn {
+  background: #242323;
+  color: white !important;
+  width: 200px;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  float: right;
+  margin-top: 30px;
+  display: inherit;
 }
