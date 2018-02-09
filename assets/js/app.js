@@ -5,9 +5,6 @@
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
-
-
-
 	var activeJobID;
 	var activeFireID;
 
@@ -50,7 +47,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 	
 	// creating variable to store jobID from firebase
 	var jobID = snap.jobID;
-
+	// var apiKey = "7e8366db87246580e2999baa3f991e8e88eb3686abb72e424c38f7a830a9156c"  --------->> api key if we need this later
 	var queryURL = "https://api-v2.themuse.com/jobs/" + jobID
 
 	$.ajax({
@@ -262,7 +259,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 		var jobID = $(this).parent().parent().attr("data-jobID");
 
 		// push jobID with empty user inputs for later use
-		database.ref().update({
+		database.ref().push({
 			jobID: jobID,
 			dateApplied: "test",
 			contact: "test",
