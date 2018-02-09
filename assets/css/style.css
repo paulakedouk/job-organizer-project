@@ -95,7 +95,6 @@ body {
   text-align: center;
   font-weight: 600;
   margin-bottom: 30px;
-<<<<<<< HEAD
 }
 
 .sidenav a {
@@ -131,43 +130,6 @@ body {
   margin-right: 20px;
 }
 
-=======
-}
-
-.sidenav a {
-  background: #646464;
-  width: 100%;
-  color: white;
-  display: flex;
-  padding: 20px 0 20px 50px;
-  text-decoration: none;
-  text-align: left;
-  text-decoration: none;
-  display: inline-block;
-  margin-bottom: 5px;
-}
-
-.icon img {
-  position: absolute;
-  width: 16px;
-  margin: 18px;
-}
-
-.centralized {
-  width: 80%;
-  float: right;
-}
-
-.container-dashboard {
-  display: flex;
-  justify-content: center;
-}
-
-.total-applied {
-  margin-right: 20px;
-}
-
->>>>>>> master
 .scheduled-interview {
   margin-left: 20px;
 }
@@ -230,7 +192,6 @@ body {
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 500;
-<<<<<<< HEAD
 }
 
 tbody th,
@@ -243,20 +204,6 @@ tbody tr {
   border-bottom: 1px solid #ddd;
 }
 
-=======
-}
-
-tbody th,
-tbody td {
-  padding: 20px 0;
-  font-size: 14px;
-}
-
-tbody tr {
-  border-bottom: 1px solid #ddd;
-}
-
->>>>>>> master
 tbody tr:last-child {
   border: none;
 }
@@ -362,7 +309,9 @@ form input {
   line-height: 30px;
 }
 
-.save-btn {
+.save-btn,
+.delete-btn,
+.edit-btn {
   background: #242323;
   color: white !important;
   width: 200px;
@@ -373,7 +322,6 @@ form input {
   float: right;
   margin-top: 30px;
   display: inherit;
-<<<<<<< HEAD
 }
 
 .dropdown {
@@ -411,8 +359,6 @@ form input {
 
 .table-search {
   margin-top: 77px;
-=======
->>>>>>> master
 }
 
 .dropdown {
@@ -450,4 +396,9 @@ form input {
 
 .table-search {
   margin-top: 77px;
+}
+
+.edit-btn {
+  margin-right: 10px;
+  margin-left: 20px;
 }
