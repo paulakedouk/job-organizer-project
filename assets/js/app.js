@@ -6,17 +6,7 @@
 
 
 
-	// listener to remove saved jobs, triggered by the delete button on job-view.html....
-	$(document).on("click", ".delete-btn", function() {
-		// pulls firebase key from the localStorage (saved when linked to job-view.html)
-		var removeKey = localStorage.activeFireID;
-		// removes the corresponding key/value pair child from the root in Firebase
-		database.ref().child(removeKey).remove();
 
-		// brings user to dashboard.html page
-		document.location="dashboard.html"
-
-	})
 
 	var activeJobID;
 	var activeFireID;
@@ -135,7 +125,6 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 	database.ref().on("child_added", function(snapshot) {
 		// storing firebase pathway to variable
 		var snap = snapshot.val();
-
 		
 		// AJAX call to populate job posting data from jobID saved in firebase
 
@@ -156,18 +145,48 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 	 	// populates job-view html fields with user input data from firebase
 	 	// put here so it doesn't run until after the AJAX call is complete
-	   	$("#date-applied").text(snap.dateApplied);
-	   	$("#contact").text(snap.contact);
-	  	$("#app-summary").text(snap.appSummary);
-	  	$("#interview").text(snap.interview);
-	  	$("#followUp").text(snap.followUp);
-	  	$("#status").text(snap.status);
+	   	$("#date-applied").val(snap.dateApplied);
+	   	$("#contact").val(snap.contact);
+	  	$("#app-summary").val(snap.appSummary);
+	  	$("#interview").val(snap.interview);
+	  	$("#followUp").val(snap.followUp);
+	  	$("#status").val(snap.status);
 
 	 	});
 
 });
 
 
+
+// =================  DELETE FUNCTION
+
+	// listener to remove saved jobs, triggered by the delete button on job-view.html....
+	$(document).on("click", ".delete-btn", function() {
+		// pulls firebase key from the localStorage (saved when linked to job-view.html)
+		var removeKey = localStorage.activeFireID;
+		// removes the corresponding key/value pair child from the root in Firebase
+		database.ref().child(removeKey).remove();
+
+		// brings user to dashboard.html page
+		document.location="dashboard.html"
+
+	})
+
+
+
+// =================  UPDATE FUNCTION
+
+	// listener to update Firebase entry based on fields saved here
+	$(document).on("click", ".edit-btn", function() {
+		// updates firebase db with whatever is saved as the value of the corresponding input
+		database.ref(localStorage.activeFireID).update({dateApplied: $("#date-applied").val()});
+		database.ref(localStorage.activeFireID).update({contact: $("#contact").val()});
+		database.ref(localStorage.activeFireID).update({appSummary: $("#app-summary").val()});
+		database.ref(localStorage.activeFireID).update({interview: $("#interview").val()});
+		database.ref(localStorage.activeFireID).update({followUp: $("#followUp").val()});
+		database.ref(localStorage.activeFireID).update({status: $("#status").val()});
+
+	});
 
 
 
@@ -243,7 +262,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 		var jobID = $(this).parent().parent().attr("data-jobID");
 
 		// push jobID with empty user inputs for later use
-		database.ref().push({
+		database.ref().update({
 			jobID: jobID,
 			dateApplied: "test",
 			contact: "test",
