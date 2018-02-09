@@ -92,6 +92,10 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 			$(".saved-jobs").append(newRow)
 			$(".saved-jobs").append("<tr class='spacer'></tr>");
 
+			// updates "total applied" in html (#jobCount), divided by two because we add a spacer row in which each entry
+			var rowCount = (document.getElementById("saved-jobs").rows.length)/2;
+			$("#jobCount").text(rowCount + " jobs")
+
 		});
 
 
