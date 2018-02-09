@@ -104,9 +104,9 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 
 
-// 	======== WHEN A ROW FROM THE TABLE IS CLICKED, POPULATES JOB-VIEW AREA....
+// 	======== WHEN A ROW FROM THE TABLE IS CLICKED, brings user to job-view.html with position specific info....
 
-	// on click of any company name locally save the Firebase ID and jobID of that posting....
+	// on click of any company name, locally save the Firebase ID and jobID of that posting....
 	
 	$(document).on("click", ".table-companyName", function() {
 		// assigning API jobID and Firebase ID to variables....
@@ -121,12 +121,21 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 	});
 
 
-	database.ref().on("child_added", function(snapshot) {
 
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// 								JOB-VIEW.HTML
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	// Firebase listening for when page loads....
+	database.ref().on("child_added", function(snapshot) {
+		// storing firebase pathway to variable
 		var snap = snapshot.val();
 
-		 	// // ajax call to populate job posting data from jobID saved in firebase
-	
+		
+		// AJAX call to populate job posting data from jobID saved in firebase
+
+		// concatenate URL and activeJOB saved to localStorage
 		var queryURL = "https://api-v2.themuse.com/jobs/" + localStorage.activeJobID
 
 		$.ajax({
@@ -134,20 +143,21 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 	 	method: "GET"
 	 	}).then(function(response){
 	 	
+	 	// populates job posting-specific information from AJAX call
 		$("#company-name").text(response.company.name);
 	 	$("#job-name").text(response.name);
-	 	$("#job-description").html("<h3>Description</h3><p class='job-p'>" + response.contents + "</p><button>...Learn more</button>");
+	 	$("#job-description").html(response.contents);
 	 	// adds attribute to map class storing the city from Muse API, to be used with google maps api
 	 	// $(".map").attr("data-city", response.locations[0].name)
 
 	 	// populates job-view html fields with user input data from firebase
 	 	// put here so it doesn't run until after the AJAX call is complete
 	   	$("#date-applied").text(snap.dateApplied);
-	   	// $("#contact").text(snap.contact);
+	   	$("#contact").text(snap.contact);
 	  	$("#app-summary").text(snap.appSummary);
-	  	// $("#interview").text(snap.interview);
-	  	// $("#followUp").text(snap.followUp);
-	  	$("#status").text(snap.Status);
+	  	$("#interview").text(snap.interview);
+	  	$("#followUp").text(snap.followUp);
+	  	$("#status").text(snap.status);
 
 	 	});
 
