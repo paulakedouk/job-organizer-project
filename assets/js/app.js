@@ -1,5 +1,25 @@
 
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// 							GLOBAL FUNCTIONS & VARIABLES
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+	// listener to remove saved jobs, triggered by the delete button on job-view.html....
+	$(document).on("click", ".delete-btn", function() {
+		// pulls firebase key from the localStorage (saved when linked to job-view.html)
+		var removeKey = localStorage.activeFireID;
+		// removes the corresponding key/value pair child from the root in Firebase
+		database.ref().child(removeKey).remove();
+
+		// brings user to dashboard.html page
+		document.location="dashboard.html"
+
+	})
+
+	var activeJobID;
+	var activeFireID;
 
 
 // =========== INITIALIZE FIREBASE, database variable declared globally
@@ -22,7 +42,14 @@ var database = firebase.database();
 
 
 
-// =========== DASHBOARD - POPULATES 'YOUR SAVED JOBS' TABLE ON PAGE LOAD......
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// 								DASHBOARD.HTML
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
+
+// =========== POPULATES 'YOUR SAVED JOBS' TABLE ON PAGE LOAD......
 
 // firebase watcher & initial loader
 database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
@@ -77,57 +104,21 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 
 
-
-
 // 	======== WHEN A ROW FROM THE TABLE IS CLICKED, POPULATES JOB-VIEW AREA....
 
 	// on click of any company name locally save the Firebase ID and jobID of that posting....
 	
 	$(document).on("click", ".table-companyName", function() {
 		// assigning API jobID and Firebase ID to variables....
-		 activeJobID = $(this).parent().attr("data-jobID");
-		 activeFireID = $(this).parent().attr("data-fireID");
-		 //  .... and storing those variables locally so they persist when the page changes
-		 localStorage.setItem("activeJobID", activeJobID);
-		 localStorage.setItem("activeFireID", activeFireID);
-
+		activeJobID = $(this).parent().attr("data-jobID");
+		activeFireID = $(this).parent().attr("data-fireID");
+		//  .... and storing those variables locally so they persist when the page changes
+		localStorage.setItem("activeJobID", activeJobID);
+		localStorage.setItem("activeFireID", activeFireID);
 		
-		 //  database.ref().on("child_added", function(snapshot) {
-			// var snap = snapshot.val();
-
-			 document.location="job-view.html"
-			// console.log(localStorage)
-
-
-
-	 	// // ajax call to populate job posting data from jobID saved in firebase
-	
-
-
-		 // var queryURL = "https://api-v2.themuse.com/jobs/" + activeJobID
-
-	 // $.ajax({
-	 // 	url: queryURL,
-	 // 	method: "GET"
-	 // }).then(function(response){
-
-	 // 	console.log(response.company.name);
-	 // 	$("#company-name").text(response.company.name);
-	 // 	$("#job-name").text(response.name);
-	 // 	$("#job-description").html("<h3>Description</h3><p class='job-p'>" + response.contents + "</p><button>...Learn more</button>");
-	 // 	// adds attribute to map class storing the city from Muse API, to be used with google maps api
-	 // 	// $(".map").attr("data-city", response.locations[0].name)
-
-	 // 	// populates job-view html fields with user input data from firebase
-	 // 	// put here so it doesn't run until after the AJAX call is complete
-	   	// $("#date-applied").text(snap.dateApplied);
-	 //  	$("#app-summary").text(snap.appSummary);
-	 //  	$("#status").text(snap.Status);
-
-	 // 	});
-
-	 // });
-});
+		// brings user to job-view.hrml page
+		document.location="job-view.html"
+	});
 
 
 	database.ref().on("child_added", function(snapshot) {
@@ -142,7 +133,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 		url: queryURL,
 	 	method: "GET"
 	 	}).then(function(response){
-	 	console.log(snap)
+	 	
 		$("#company-name").text(response.company.name);
 	 	$("#job-name").text(response.name);
 	 	$("#job-description").html("<h3>Description</h3><p class='job-p'>" + response.contents + "</p><button>...Learn more</button>");
@@ -171,7 +162,12 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 
 
-// 	~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ search-job.html
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// 								SEARCH-JOB.HTML
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+
+
 
 // ========== AJAX SEARCH TO GENERATE LIST OF JOBS TO ADD TO SAVED TABLE
 
@@ -248,22 +244,6 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 
 
-
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GLOBAL FUNCTIONS & VARIABLES
-
-	// listener to remove saved jobs....
-	$(document).on("click", ".remove-job", function() {
-		// pulls firebase key from the rowID and saves to a temp variable
-		var removeKey = $(this).parent().parent().attr("data-fireID");
-		// removes the corresponding key/value pair child from the root in Firebase
-		database.ref().child(removeKey).remove();
-		// updates HTML
-		$(this).closest("tr").remove();
-
-	})
-
-	var activeJobID;
-	var activeFireID;
 
 			
 
