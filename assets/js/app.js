@@ -184,6 +184,9 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 		database.ref(localStorage.activeFireID).update({followUp: $("#followUp").val()});
 		database.ref(localStorage.activeFireID).update({status: $("#status").val()});
 
+		// brings user to dashboard.html page
+		document.location="dashboard.html"
+
 	});
 
 
@@ -271,7 +274,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 			dateAdded: firebase.database.ServerValue.TIMESTAMP
 		})
 
-		// brings user to job-view.html page
+		// brings user to dashboard.html page
 		document.location="dashboard.html"
 
 	});
