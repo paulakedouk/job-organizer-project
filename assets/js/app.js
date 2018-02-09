@@ -152,7 +152,10 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 	 	// populates job-view html fields with user input data from firebase
 	 	// put here so it doesn't run until after the AJAX call is complete
 	   	$("#date-applied").text(snap.dateApplied);
+	   	// $("#contact").text(snap.contact);
 	  	$("#app-summary").text(snap.appSummary);
+	  	// $("#interview").text(snap.interview);
+	  	// $("#followUp").text(snap.followUp);
 	  	$("#status").text(snap.Status);
 
 	 	});
@@ -232,12 +235,12 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 		// push jobID with empty user inputs for later use
 		database.ref().push({
 			jobID: jobID,
-			dateApplied: "Not Submitted",
-			contact: "",
-			appSummary: "",
-			interview: "",
-			followUp: "",
-			status: "Need to Research",
+			dateApplied: "test",
+			contact: "test",
+			appSummary: "test",
+			interview: "test",
+			followUp: "test",
+			status: "test",
 			dateAdded: firebase.database.ServerValue.TIMESTAMP
 		})
 
