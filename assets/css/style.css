@@ -362,7 +362,9 @@ form input {
   line-height: 30px;
 }
 
-.save-btn {
+.save-btn,
+.delete-btn,
+.edit-btn {
   background: #242323;
   color: white !important;
   width: 200px;
@@ -450,4 +452,46 @@ form input {
 
 .table-search {
   margin-top: 77px;
+}
+
+.dropdown {
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+.dropdown select {
+  border: none;
+  padding: 10px;
+  font-size: 18px;
+  color: gray;
+  height: 40px;
+}
+
+/* Search job page */
+
+.dropdown-search {
+  text-align: center;
+}
+
+.add-btn {
+  background: #242323;
+  color: white !important;
+  width: 100px;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+.dropdown-search select {
+  margin-top: 56px;
+}
+
+.table-search {
+  margin-top: 77px;
+}
+
+.edit-btn {
+  margin-right: 10px;
+  margin-left: 20px;
 }
