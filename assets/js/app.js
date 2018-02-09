@@ -71,6 +71,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 			newRow.append("<td class='table-positionName'>" + response.name + "</td>");
 			newRow.append("<td class='table-dateApplied'>" + snap.dateApplied + "</td>");
 			newRow.append("<td class='table-status'>" + snap.status + "</td>");
+			newRow.append("<td><button id='detail-btn'>Detail</button></td>");
 			// commenting these buttons out for now
 			// newRow.append("<td><button class='view-job'>View</button></td>");
 			// newRow.append("<td><button class='remove-job'>X</button></td>");
@@ -99,10 +100,10 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 	// on click of any company name, locally save the Firebase ID and jobID of that posting....
 	
-	$(document).on("click", ".table-companyName", function() {
+	$(document).on("click", "#detail-btn", function() {
 		// assigning API jobID and Firebase ID to variables....
-		activeJobID = $(this).parent().attr("data-jobID");
-		activeFireID = $(this).parent().attr("data-fireID");
+		activeJobID = $(this).parent().parent().attr("data-jobID");
+		activeFireID = $(this).parent().parent().attr("data-fireID");
 		//  .... and storing those variables locally so they persist when the page changes
 		localStorage.setItem("activeJobID", activeJobID);
 		localStorage.setItem("activeFireID", activeFireID);
