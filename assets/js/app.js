@@ -81,29 +81,69 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 // 	======== WHEN A ROW FROM THE TABLE IS CLICKED, POPULATES JOB-VIEW AREA....
 
-	// need to make this so on click, pulls id from the row and populates below with....
+	// on click of any company name locally save the Firebase ID and jobID of that posting....
 	
 	$(document).on("click", ".table-companyName", function() {
-		var activeJobID = $(this).parent().attr("data-jobID");
-		var activeFireID = $(this).parent().attr("data-fireID");
-		database.ref().on("child_added", function(snapshot) {
-			var snap = snapshot.val();
+		// assigning API jobID and Firebase ID to variables....
+		 activeJobID = $(this).parent().attr("data-jobID");
+		 activeFireID = $(this).parent().attr("data-fireID");
+		 //  .... and storing those variables locally so they persist when the page changes
+		 localStorage.setItem("activeJobID", activeJobID);
+		 localStorage.setItem("activeFireID", activeFireID);
+
+		
+		 //  database.ref().on("child_added", function(snapshot) {
+			// var snap = snapshot.val();
+
+			 document.location="job-view.html"
+			// console.log(localStorage)
 
 
 
-	 // ajax call to populate job posting data from jobID saved in firebase
+	 	// // ajax call to populate job posting data from jobID saved in firebase
 	
-	 // creating variable to store jobID from firebase
-	 	var jobID = snap.jobID;
 
-		var queryURL = "https://api-v2.themuse.com/jobs/" + jobID
 
-	 $.ajax({
-	 	url: queryURL,
+		 // var queryURL = "https://api-v2.themuse.com/jobs/" + activeJobID
+
+	 // $.ajax({
+	 // 	url: queryURL,
+	 // 	method: "GET"
+	 // }).then(function(response){
+
+	 // 	console.log(response.company.name);
+	 // 	$("#company-name").text(response.company.name);
+	 // 	$("#job-name").text(response.name);
+	 // 	$("#job-description").html("<h3>Description</h3><p class='job-p'>" + response.contents + "</p><button>...Learn more</button>");
+	 // 	// adds attribute to map class storing the city from Muse API, to be used with google maps api
+	 // 	// $(".map").attr("data-city", response.locations[0].name)
+
+	 // 	// populates job-view html fields with user input data from firebase
+	 // 	// put here so it doesn't run until after the AJAX call is complete
+	   	// $("#date-applied").text(snap.dateApplied);
+	 //  	$("#app-summary").text(snap.appSummary);
+	 //  	$("#status").text(snap.Status);
+
+	 // 	});
+
+	 // });
+});
+
+
+	database.ref().on("child_added", function(snapshot) {
+
+		var snap = snapshot.val();
+
+		 	// // ajax call to populate job posting data from jobID saved in firebase
+	
+		var queryURL = "https://api-v2.themuse.com/jobs/" + localStorage.activeJobID
+
+		$.ajax({
+		url: queryURL,
 	 	method: "GET"
-	 }).then(function(response){
-
-	 	$("#company-name").text(response.company.name);
+	 	}).then(function(response){
+	 	console.log(snap)
+		$("#company-name").text(response.company.name);
 	 	$("#job-name").text(response.name);
 	 	$("#job-description").html("<h3>Description</h3><p class='job-p'>" + response.contents + "</p><button>...Learn more</button>");
 	 	// adds attribute to map class storing the city from Muse API, to be used with google maps api
@@ -111,14 +151,20 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 	 	// populates job-view html fields with user input data from firebase
 	 	// put here so it doesn't run until after the AJAX call is complete
-	  	$("#date-applied").text(snap.dateApplied);
+	   	$("#date-applied").text(snap.dateApplied);
+	   	// $("#contact").text(snap.contact);
 	  	$("#app-summary").text(snap.appSummary);
+	  	// $("#interview").text(snap.interview);
+	  	// $("#followUp").text(snap.followUp);
 	  	$("#status").text(snap.Status);
 
 	 	});
 
-	});
 });
+
+
+
+
 
 // =================================================================================
 
@@ -189,9 +235,12 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 		// push jobID with empty user inputs for later use
 		database.ref().push({
 			jobID: jobID,
-			dateApplied: "Not Submitted",
-			appSummary: "",
-			status: "Need to Research",
+			dateApplied: "test",
+			contact: "test",
+			appSummary: "test",
+			interview: "test",
+			followUp: "test",
+			status: "test",
 			dateAdded: firebase.database.ServerValue.TIMESTAMP
 		})
 
@@ -200,7 +249,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 
 
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GLOBAL FUNCTIONS
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ GLOBAL FUNCTIONS & VARIABLES
 
 	// listener to remove saved jobs....
 	$(document).on("click", ".remove-job", function() {
@@ -213,8 +262,10 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 	})
 
+	var activeJobID;
+	var activeFireID;
 
-
+			
 
 
 
