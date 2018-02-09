@@ -397,7 +397,7 @@ form input {
   text-align: center;
 }
 
-.add-btn {
+.add-btn, #detail-btn {
   background: #242323;
   color: white !important;
   width: 100px;
@@ -405,6 +405,10 @@ form input {
   text-align: center;
   text-decoration: none;
   font-size: 12px;
+}
+
+#detail-btn {
+  width: 50px !important;
 }
 
 .dropdown-search select {
