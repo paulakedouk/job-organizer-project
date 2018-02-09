@@ -108,7 +108,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 		localStorage.setItem("activeJobID", activeJobID);
 		localStorage.setItem("activeFireID", activeFireID);
 		
-		// brings user to job-view.hrml page
+		// brings user to job-view.html page
 		document.location="job-view.html"
 	});
 
@@ -270,6 +270,9 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 			status: "test",
 			dateAdded: firebase.database.ServerValue.TIMESTAMP
 		})
+
+		// brings user to job-view.html page
+		document.location="dashboard.html"
 
 	});
 
