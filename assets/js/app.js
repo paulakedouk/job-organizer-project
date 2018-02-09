@@ -47,8 +47,8 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 	
 	// creating variable to store jobID from firebase
 	var jobID = snap.jobID;
-	// var apiKey = "7e8366db87246580e2999baa3f991e8e88eb3686abb72e424c38f7a830a9156c"  --------->> api key if we need this later
-	var queryURL = "https://api-v2.themuse.com/jobs/" + jobID
+	var apiKey = "7e8366db87246580e2999baa3f991e8e88eb3686abb72e424c38f7a830a9156c"
+	var queryURL = "https://api-v2.themuse.com/jobs/" + jobID 
 
 	$.ajax({
 		url: queryURL,
@@ -125,7 +125,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 		var snap = snapshot.val();
 		
 		// AJAX call to populate job posting data from jobID saved in firebase
-
+		var apiKey = "7e8366db87246580e2999baa3f991e8e88eb3686abb72e424c38f7a830a9156c"
 		// concatenate URL and activeJOB saved to localStorage
 		var queryURL = "https://api-v2.themuse.com/jobs/" + localStorage.activeJobID
 
@@ -212,7 +212,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 		// assigns value of the dropdown to a variable
 		var userCategory = $(this).val()
-
+		var apiKey = "7e8366db87246580e2999baa3f991e8e88eb3686abb72e424c38f7a830a9156c"
 	//  AJAX call to Muse API, to be used in search
 
 		function ajaxMuse () {
