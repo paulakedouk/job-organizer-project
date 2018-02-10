@@ -41,11 +41,11 @@
         <div class="container-dashboard">
             <div class="total-applied">
                 <h3>Total applied</h3>
-                <p>12 jobs</p>
+                <p id="jobCount"></p>
                 <img src="assets/images/chart-blue.svg" alt="Chart Blue Img">
             </div>
             <div class="scheduled-interview">
-                <h3>Scheduled Inverview</h3>
+                <h3>Scheduled Interviews</h3>
                 <p>3 interviews</p>
                 <img src="assets/images/chart-purple.svg" alt="Chart Blue Img">
             </div>
@@ -59,26 +59,12 @@
                         <th>Position</th>
                         <th>Date Applied</th>
                         <th>Status</th>
+                        <th></th>
+
                     </tr>
                 </thead>
-                <tbody class="tbody saved-jobs">
-                        <tr>
-                            <td>
-                                <a href="job-view.html">Airbnb</a>
-                            </td>
-                            <td>Developer</td>
-                            <td>02/12/2018</td>
-                            <td>Waiting for response</td>
-                        </tr>
-                        <tr class="spacer">
-                        </tr>
-                        <tr>
-                            <td>Facebook</td>
-                            <td>Front-end Developer</td>
-                            <td>02/20/2018</td>
-                            <td>Interview scheduled</td>
-                        </tr>
-
+                <tbody class="tbody saved-jobs" id="saved-jobs">
+                <!-- JS adds rows here -->
                 </tbody>
             </table>
         </div>
