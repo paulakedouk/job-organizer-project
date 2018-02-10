@@ -17,7 +17,7 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   width: 50%;
-  height: 113vh;
+  height: 100vh;
   float: left;
 }
 
@@ -127,7 +127,7 @@ body {
 }
 
 .total-applied {
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 .scheduled-interview {
@@ -401,4 +401,20 @@ form input {
 .edit-btn {
   margin-right: 10px;
   margin-left: 20px;
+}
+
+@media only screen and (max-width: 870px) {
+  .img {
+    width: 100%;
+    height: 50vh;
+    background: url(../images/initial-img.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    float: none;
+  }
+  .signin {
+    width: 100%;
+    margin-top: 50px;
+  }
 }
