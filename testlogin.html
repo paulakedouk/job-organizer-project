@@ -37,14 +37,14 @@
             </p>
         </div>
         <form class="username-form">
-            <input type="text" placeholder="username">
-            <input type="text" placeholder="password">
+            <input type="text" placeholder="username" id="username">
+            <input type="password" placeholder="password" id="password">
         </form>
         <div class="buttons">
-            <a href="dashboard.html">
+           <!--  <a href="dashboard.html"> -->
                 <button class="login-btn" style="width: 100px">Login</button>
                 <button class="signup-btn" style="background: #242323; color: white; width: 100px; font-size: 12px; padding: 10px 0; ">Sign Up</button>
-            </a>
+            <!-- </a> -->
             <button id="google-btn" style="background: #242323; color: white; width: 150px; font-size: 12px; padding: 10px 0; ">Sign In With Google</button>
         </div>
     </div>
@@ -57,13 +57,9 @@
 
 
   $("#google-btn").on("click", function() {
- 
-    // event.preventDefault();
-    // console.log("click");
-
-
-
+    
     var provider = new firebase.auth.GoogleAuthProvider();
+     
 
   
     // console.log("provider", provider);
@@ -78,10 +74,10 @@
     }
     // The signed-in user info.
     var user = result.user;
-    console.log("Hello " + user.displayName);
+    console.log(user.displayName);
 
   }).catch(function(error) {
-    console.log("error", error)
+    // console.log("error", error)
     // Handle Errors here.
     var errorCode = error.code;
     var errorMessage = error.message;
@@ -95,6 +91,81 @@
 
 
 
+});
+
+$(".signup-btn").on("click", function() {
+
+email = $("#username").val().trim();
+password = $("#password").val().trim();
+ console.log(email);
+  console.log(password);
+
+//if the user didn't input the information in email and/or password, it will popup a alert saying that the input is required
+  if(!email || !password) {
+    return alert('email and password required');
+  }
+
+//create a alert in case that the email was already used to create a account
+  if(email === profile.email) {
+    return alert("The email address is already in use by another account.");
+  }
+
+//register user, create a new account
+  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    console.log('register error', error);
+
+  
+
+  if (error.code === 'auth/email-already-in-use') {
+    var credential = firebase.auth.EmailAuthProvider.credential(email, password);
+
+    app.signInWithGoogle()
+    .then(function() {
+      firebase.auth().currentUser.link(credential)
+      .then(function(user) {
+        console.log("Acount linking success", user);
+      }, function(error) {
+        console.log("Account linking error", error);
+      
+      });
+    });
+  }
+
+});
+});
+
+
+//clicking in login button
+$(".login-btn").on("click", function() {
+
+
+email = $("#username").val().trim();
+password = $("#password").val().trim();
+
+  if (!email || !password) {
+    return alert('email and password required');
+  }
+
+  //sign in user that already exist in the system
+  firebase.auth().signInWithEmailAndPassword(email, password)
+  .then(function(result) {
+    alert("Congratulation, you are signed in!");
+    document.location = "dashboard.html";
+  })
+  .catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+
+  console.log('signIn error', error)
+
+  if (errorCode === 'auth/wrong-password') {
+    alert('Wrong password.');
+  } else {
+    alert(errorMessage);
+  }
+  console.log(error);
+});
 });
 
 

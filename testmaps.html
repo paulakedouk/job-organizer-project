@@ -116,44 +116,35 @@
           
 
 <script>
-
-
     // var location = document.getElementByClassName("company-name").value().trim(); 
-
     function initAutocomplete() {
         var map = new google.maps.Map(document.getElementById('map'), {
           center: {lat: 37.773972, lng: -122.431297},
           zoom: 12,
           mapTypeId: 'roadmap'
         });
-
        
         var input = document.getElementById('input');
         var searchBox = new google.maps.places.SearchBox(input);
      
            // location.addListener('places_changed', function() {
-
       
         map.addListener('bounds_changed', function() {
           searchBox.setBounds(map.getBounds());
         });
-
         var markers = [];
     
         searchBox.addListener('places_changed', function() {
           var places = searchBox.getPlaces();
           // var places = location.getPlaces();
-
           if (places.length == 0) {
             return;
           }
-
           // Clear out the old markers.
           markers.forEach(function(marker) {
             marker.setMap(null);
           });
           markers = [];
-
           // For each place, get the icon, name and location.
           var bounds = new google.maps.LatLngBounds();
           places.forEach(function(place) {
@@ -168,7 +159,6 @@
               title: place.name,
               position: place.geometry.location
             }));
-
             if (place.geometry.viewport) {
               // Only geocodes have viewport.
               bounds.union(place.geometry.viewport);
@@ -180,7 +170,6 @@
           map.fitBounds(bounds);
         });
       }
-
     </script>
 
 
