@@ -152,7 +152,7 @@ body {
 .total-applied p,
 .scheduled-interview p {
   margin-top: 36px;
-  width: 130px;
+  width: 50%;
   float: left;
   font-weight: 400;
   font-size: 20px;
@@ -161,7 +161,7 @@ body {
 
 .total-applied img,
 .scheduled-interview img {
-  width: 130px;
+  width: 50%;
   padding-right: 20px;
 }
 
@@ -404,27 +404,22 @@ form input {
 }
 
 @media only screen and (max-width: 650px) {
+  .centralized {
+    background: white;
+  }
+
   .icon a {
     font-size: 14px;
   }
 
   .container-dashboard {
-    flex-wrap: wrap;
-    margin-top: 60px;
-  }
-
-  .total-applied {
-    margin-top: 0 !important;
-  }
-
-  .scheduled-interview {
-    margin: 0;
-    margin-top: 20px !important;
+    display: inline;
   }
 
   .total-applied,
   .scheduled-interview {
     width: 100%;
+    background: red;
     /* margin: 0 auto !important; */
   }
 
@@ -435,18 +430,14 @@ form input {
   }
   .total-applied,
   .scheduled-interview {
-    padding: 0 30px;
-  }
-
-  .total-applied img,
-  .scheduled-interview img {
-    width: 150px;
-    float: right;
-    margin-top: 8px;
+    padding: 0 60px;
   }
 }
 
 @media only screen and (min-width: 650px) and (max-width: 870px) {
+  .centralized {
+    background: blue;
+  }
   .img {
     width: 100%;
     height: 50vh;
@@ -459,14 +450,6 @@ form input {
   .signin {
     width: 90%;
     margin-top: 50px;
-  }
-
-  .total-applied img,
-  .scheduled-interview img {
-    width: 110px;
-    float: right;
-    padding-right: 20px;
-    margin-top: 21px !important;
   }
 }
 
@@ -505,13 +488,6 @@ form input {
     width: 39%;
     margin-top: 60px;
   }
-
-  .total-applied img,
-  .scheduled-interview img {
-    float: right;
-    margin-top: 14px;
-  }
-
   .table-job {
     width: 80%;
   }
@@ -523,16 +499,5 @@ form input {
   tr th {
     font-size: 12px;
     padding-left: 10px;
-  }
-}
-
-@media only screen and (min-width: 1021px) {
-  .total-applied {
-    margin-right: 20px;
-  }
-  .total-applied img,
-  .scheduled-interview img {
-    float: right;
-    margin-top: 15px;
   }
 }
