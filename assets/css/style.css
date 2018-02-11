@@ -70,6 +70,7 @@ body {
 .signup-btn,
 #google-btn {
   background: #242323;
+  cursor: pointer;
   color: white !important;
   width: 300px;
   padding: 10px 0;
@@ -362,6 +363,7 @@ form input {
   float: right;
   margin-top: 30px;
   display: inherit;
+  cursor: pointer;
 }
 
 .delete-btn,
@@ -397,6 +399,7 @@ form input {
   text-align: center;
   text-decoration: none;
   font-size: 12px;
+  cursor: pointer;
 }
 
 #detail-btn {
@@ -438,6 +441,7 @@ form input {
   text-align: center;
   text-decoration: none;
   font-size: 12px;
+  cursor: pointer;
 }
 
 .dropdown-search select {
