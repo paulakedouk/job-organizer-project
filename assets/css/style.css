@@ -79,7 +79,7 @@ body {
   font-size: 12px;
 }
 
-#google-btn{
+#google-btn {
   background: #242323;
   color: white !important;
   width: 150px;
@@ -567,9 +567,6 @@ form input {
 }
 
 @media only screen and (min-width: 650px) and (max-width: 870px) {
-  .signin {
-  }
-
   .total-applied img,
   .scheduled-interview img {
     width: 110px;
