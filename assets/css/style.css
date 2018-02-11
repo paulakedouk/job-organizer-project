@@ -556,9 +556,6 @@ form input {
 }
 
 @media only screen and (min-width: 650px) and (max-width: 870px) {
-  .signin {
-  }
-
   .total-applied img,
   .scheduled-interview img {
     width: 110px;
