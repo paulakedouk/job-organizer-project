@@ -71,7 +71,18 @@ body {
 #google-btn {
   background: #242323;
   color: white !important;
-  width: 300px;
+  width: 100px;
+  padding: 10px 0;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 12px;
+}
+
+#google-btn{
+  background: #242323;
+  color: white !important;
+  width: 150px;
   padding: 10px 0;
   text-align: center;
   text-decoration: none;
