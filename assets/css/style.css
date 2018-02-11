@@ -319,7 +319,7 @@ form input {
   background: #242323;
   color: white !important;
   width: 200px;
-
+  padding: 10px;
   text-align: center;
   text-decoration: none;
   font-size: 12px;
@@ -502,10 +502,6 @@ form input {
     width: 100%;
     margin: 0 auto;
     margin-top: 20px;
-  }
-
-  .save-btn {
-    padding: 0;
   }
 }
 
