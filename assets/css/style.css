@@ -413,6 +413,20 @@ form input {
 }
 
 @media only screen and (max-width: 650px) {
+  .img {
+    width: 100%;
+    height: 50vh;
+    background: url(../images/initial-img.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    float: none;
+  }
+  .signin {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 100px;
+  }
   .icon a {
     font-size: 14px;
   }
@@ -464,21 +478,6 @@ form input {
 }
 
 @media only screen and (min-width: 650px) and (max-width: 870px) {
-  .img {
-    width: 100%;
-    height: 50vh;
-    background: url(../images/initial-img.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
-    background-position: center center;
-    float: none;
-  }
-  .signin {
-    width: 100%;
-    margin-top: 50px;
-    margin-bottom: 100px;
-  }
-
   .total-applied img,
   .scheduled-interview img {
     width: 110px;
