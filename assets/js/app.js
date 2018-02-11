@@ -197,6 +197,118 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 	});
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LOGIN functions
+
+$("#google-btn").on("click", function() {
+    
+    var provider = new firebase.auth.GoogleAuthProvider(); 
+
+
+//function to create a popup pag to sign in using google
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+      console.log("result", result)
+    if (result.credential) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+    // ...
+    console.log(token);
+    }
+    // The signed-in user info.
+    var user = result.user;
+    console.log(user.displayName);
+
+  }).catch(function(error) {
+    // console.log("error", error)
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+
+    // ...
+  });
+
+
+
+});
+
+$(".signup-btn").on("click", function() {
+
+email = $("#username").val().trim();
+password = $("#password").val().trim();
+ 
+//if the user didn't input the information in email and/or password, it will popup a alert saying that the input is required
+  if(!email || !password) {
+    return alert('email and password required');
+  }
+
+//create a alert in case that the email was already used to create a account
+  if(email === profile.email) {
+    return alert("The email address is already in use by another account.");
+  }
+
+//register user, create a new account
+  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    console.log('register error', error);
+
+  
+
+  if (error.code === 'auth/email-already-in-use') {
+    var credential = firebase.auth.EmailAuthProvider.credential(email, password);
+
+    app.signInWithGoogle()
+    .then(function() {
+      firebase.auth().currentUser.link(credential)
+      .then(function(user) {
+        console.log("Acount linking success", user);
+      }, function(error) {
+        console.log("Account linking error", error);
+      
+      });
+    });
+  }
+
+});
+});
+
+
+//clicking in login button
+$(".login-btn").on("click", function() {
+
+
+email = $("#username").val().trim();
+password = $("#password").val().trim();
+
+  if (!email || !password) {
+    return alert('email and password required');
+  }
+
+  //sign in user that already exist in the system
+  firebase.auth().signInWithEmailAndPassword(email, password)
+  .then(function(result) {
+    alert("Congratulation, you are signed in!");
+    document.location = "dashboard.html";
+  })
+  .catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+
+  console.log('signIn error', error)
+
+  if (errorCode === 'auth/wrong-password') {
+    alert('Wrong password.');
+  } else {
+    alert(errorMessage);
+  }
+  console.log(error);
+});
+});
+
+
+
 
 
 
