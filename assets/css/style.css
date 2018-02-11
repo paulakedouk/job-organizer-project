@@ -263,10 +263,15 @@ a {
   margin-top: 70px;
 }
 
-.input {
+.input input {
   border-left: 5px solid #242323;
   padding: 10px;
   font-size: 16px;
+}
+
+#date-applied {
+  padding-left: 10px;
+  margin-left: 20px;
 }
 
 .input h4 {
@@ -315,13 +320,18 @@ form input {
   background: #242323;
   color: white !important;
   width: 200px;
-  padding: 10px 0;
+
   text-align: center;
   text-decoration: none;
   font-size: 12px;
   float: right;
   margin-top: 30px;
   display: inherit;
+}
+
+.delete-btn,
+.edit-btn {
+  padding: 10px 0;
 }
 
 .dropdown {
@@ -443,6 +453,18 @@ form input {
     width: 150px;
     float: right;
     margin-top: 8px;
+  }
+
+  .edit-btn,
+  .delete-btn,
+  .save-btn {
+    width: 100%;
+    margin: 0 auto;
+    margin-top: 20px;
+  }
+
+  .save-btn {
+    padding: 0;
   }
 }
 
