@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta name="google-signin-client_id" content="937021709360-8mhd249ib635g5jaghbqf1r0dm6qf4ep.apps.googleusercontent.com">
+    <meta name="google-signin-cookiepolicy" content="single_host_origin">
+    <meta name="google-signin-scope" content="profile email">
+  	<script src="https://apis.google.com/js/platform.js" async defer></script>
+  	 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	
+	
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <script src="https://www.gstatic.com/firebasejs/4.9.1/firebase.js"></script>
+<script>
+  var config = {
+    apiKey: "AIzaSyDElNEoX3JqQ4ALdmEDx7HNOP3bM7utiTI",
+    authDomain: "project-one-5b8cc.firebaseapp.com",
+    databaseURL: "https://project-one-5b8cc.firebaseio.com",
+    projectId: "project-one-5b8cc",
+    storageBucket: "project-one-5b8cc.appspot.com",
+    messagingSenderId: "937021709360"
+  };
+  firebase.initializeApp(config);
+</script>
+
+</head>
+<body class="index">
+    <div class="img"></div>
+    <div class="signin">
+        <div class="title">THE JOB ORGANIZER</div>
+        <div class="description">
+            <p>A platform to organize and connect a user’s job search. We allow user’s to organize and track their job search
+                process, from establishing connections to recruiters and etc. Additionally, user’s can be matched with jobs
+                (indeed API or whatever) based off of similar postings/interests.
+            </p>
+        </div>
+        <form class="username-form">
+            <input type="text" placeholder="username" id="username">
+            <input type="password" placeholder="password" id="password">
+        </form>
+        <div class="buttons">
+           <!--  <a href="dashboard.html"> -->
+                <button class="login-btn" style="width: 100px">Login</button>
+                <button class="signup-btn" style="background: #242323; color: white; width: 100px; font-size: 12px; padding: 10px 0; ">Sign Up</button>
+            <!-- </a> -->
+            <button id="google-btn" style="background: #242323; color: white; width: 150px; font-size: 12px; padding: 10px 0; ">Sign In With Google</button>
+        </div>
+    </div>
+	
+             
+            
+<script type="text/javascript">
+
+
+
+
+  $("#google-btn").on("click", function() {
+    
+    var provider = new firebase.auth.GoogleAuthProvider();
+     
+
+  
+    // console.log("provider", provider);
+
+    firebase.auth().signInWithPopup(provider).then(function(result) {
+      console.log("result", result)
+    if (result.credential) {
+      // This gives you a Google Access Token. You can use it to access the Google API.
+      var token = result.credential.accessToken;
+    // ...
+    console.log(token);
+    }
+    // The signed-in user info.
+    var user = result.user;
+    console.log(user.displayName);
+
+  }).catch(function(error) {
+    // console.log("error", error)
+    // Handle Errors here.
+    var errorCode = error.code;
+    var errorMessage = error.message;
+    // The email of the user's account used.
+    var email = error.email;
+    // The firebase.auth.AuthCredential type that was used.
+    var credential = error.credential;
+
+    // ...
+  });
+
+
+
+});
+
+$(".signup-btn").on("click", function() {
+
+email = $("#username").val().trim();
+password = $("#password").val().trim();
+ // console.log(email);
+ //  console.log(password);
+
+//if the user didn't input the information in email and/or password, it will popup a alert saying that the input is required
+  if(!email || !password) {
+    return alert('email and password required');
+  }
+
+//create a alert in case that the email was already used to create a account
+  if(email === profile.email) {
+    return alert("The email address is already in use by another account.");
+  }
+
+//register user, create a new account
+  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
+    console.log('register error', error);
+
+  
+
+  if (error.code === 'auth/email-already-in-use') {
+    var credential = firebase.auth.EmailAuthProvider.credential(email, password);
+
+    app.signInWithGoogle()
+    .then(function() {
+      firebase.auth().currentUser.link(credential)
+      .then(function(user) {
+        console.log("Acount linking success", user);
+      }, function(error) {
+        console.log("Account linking error", error);
+      
+      });
+    });
+  }
+
+});
+});
+
+
+//clicking in login button
+$(".login-btn").on("click", function() {
+
+
+email = $("#username").val().trim();
+password = $("#password").val().trim();
+
+  if (!email || !password) {
+    return alert('email and password required');
+  }
+
+  //sign in user that already exist in the system
+  firebase.auth().signInWithEmailAndPassword(email, password)
+  .then(function(result) {
+    alert("Congratulation, you are signed in!");
+    document.location = "dashboard.html";
+  })
+  .catch(function(error) {
+  // Handle Errors here.
+  var errorCode = error.code;
+  var errorMessage = error.message;
+
+  console.log('signIn error', error)
+
+  if (errorCode === 'auth/wrong-password') {
+    alert('Wrong password.');
+  } else {
+    alert(errorMessage);
+  }
+  console.log(error);
+});
+});
+
+
+
+
+
+</script>
+
+</body>
+</html>
