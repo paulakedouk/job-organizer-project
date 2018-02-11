@@ -28,7 +28,7 @@ body {
 }
 
 .signin {
-  margin-top: 220px;
+  margin-top: 110px;
   width: 50%;
   float: right;
 }
@@ -56,21 +56,22 @@ body {
 }
 
 .signup-btn,
-.login-btn {
-  background: #242323;
-  color: white !important;
-  width: 100px;
-  padding: 10px 0;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 12px;
+#google-btn {
+  display: flex !important;
+  justify-content: center;
+  margin: 0 auto;
 }
 
-#google-btn{
+#google-btn {
+  margin-top: 20px;
+}
+
+.login-btn,
+.signup-btn,
+#google-btn {
   background: #242323;
   color: white !important;
-  width: 150px;
+  width: 300px;
   padding: 10px 0;
   text-align: center;
   text-decoration: none;
@@ -81,6 +82,29 @@ body {
 .buttons {
   text-align: center;
   margin-top: 50px;
+}
+
+.separate {
+  display: flex;
+  justify-content: center;
+  color: #d3d3d3;
+  margin: 40px 0;
+}
+
+.line-left,
+.line-right {
+  width: 125px;
+  height: 1px;
+  margin-top: 8px;
+  background: #d3d3d3;
+}
+
+.line-left {
+  margin-right: 17px;
+}
+
+.line-right {
+  margin-left: 17px;
 }
 
 /* Signed-page */
@@ -532,6 +556,9 @@ form input {
 }
 
 @media only screen and (min-width: 650px) and (max-width: 870px) {
+  .signin {
+  }
+
   .total-applied img,
   .scheduled-interview img {
     width: 110px;
