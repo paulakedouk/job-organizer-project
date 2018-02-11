@@ -17,7 +17,7 @@ body {
   background-repeat: no-repeat;
   background-position: center center;
   width: 50%;
-  height: 113vh;
+  height: 100vh;
   float: left;
 }
 
@@ -127,7 +127,7 @@ body {
 }
 
 .total-applied {
-  margin-right: 20px;
+  margin-right: 40px;
 }
 
 .scheduled-interview {
@@ -443,4 +443,109 @@ form input {
 .edit-btn {
   margin-right: 10px;
   margin-left: 20px;
+}
+
+@media only screen and (max-width: 650px) {
+  .total-applied,
+  .scheduled-interview {
+    width: 100%;
+    background: white;
+  }
+
+  .table-job,
+  .total-applied,
+  .scheduled-interview {
+    width: 90% !important;
+  }
+  .total-applied,
+  .scheduled-interview {
+    padding: 0 60px;
+  }
+}
+
+@media only screen and (max-width: 570px) {
+  .icon a {
+    font-size: 14px;
+  }
+
+  .total-applied,
+  .scheduled-interview {
+    padding: 0;
+  }
+}
+
+@media only screen and (max-width: 870px) {
+  .img {
+    width: 100%;
+    height: 50vh;
+    background: url(../images/initial-img.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+    float: none;
+  }
+  .signin {
+    width: 90%;
+    margin-top: 50px;
+  }
+}
+
+@media only screen and (max-width: 1020px) {
+  .sidenav {
+    width: 100%;
+    height: 190px;
+    position: initial;
+  }
+
+  .sidenav-btn {
+    display: flex;
+    justify-content: center;
+  }
+
+  .sidenav a {
+    background: none;
+    padding: 0 10px;
+    text-align: center;
+  }
+
+  .icon {
+    text-align: center;
+  }
+
+  .icon img {
+    position: relative;
+  }
+
+  .centralized {
+    width: 100%;
+  }
+
+  .container-dashboard {
+    display: inline;
+  }
+  .total-applied,
+  .scheduled-interview {
+    width: 56%;
+    margin: 0 auto;
+    margin-top: 76px;
+  }
+  .scheduled-interview {
+    margin-top: 60px;
+  }
+
+  .table-job {
+    width: 56%;
+  }
+
+  .total-applied img,
+  .scheduled-interview img {
+    width: 180px;
+    float: right;
+  }
+
+  tr td,
+  tr th {
+    font-size: 12px;
+    padding-left: 10px;
+  }
 }
