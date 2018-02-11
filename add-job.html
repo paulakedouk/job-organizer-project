@@ -8,6 +8,11 @@
     <title>The Job Organizer</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <!-- jQuery library-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- Firebase Reference -->
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+
 </head>
 
 <body class="signed-page">
@@ -23,10 +28,12 @@
                 <a href="add-job.html">Add new job</a>
             </div>
             <div class="icon">
+
                 <img src="assets/images/search-icon.svg" alt="Search icon">
                 <a href="search-job.html">Search job</a>
             </div>
             <div class="icon">
+
                 <img src="assets/images/calendar.svg" alt="Calendar icon">
                 <a href="calendar.html">Calendar</a>
             </div>
@@ -40,6 +47,7 @@
                 <label class="input-label" for="input1">
                     Date if you applied for the job.
                 </label>
+
                 <div class="dropdown">
                     <select name="position" id="position-dropdown">
                         <option value="" disabled selected>Select a job position</option>
@@ -90,6 +98,7 @@
             </form>
         </div>
     </div>
+    <script type="text/javascript" src="assets/js/app.js"></script>
 </body>
 
 </html>
