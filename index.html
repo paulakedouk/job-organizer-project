@@ -8,16 +8,33 @@
     <title>The Job Organizer</title>
     <link rel="stylesheet" href="assets/css/reset.css">
     <link rel="stylesheet" href="assets/css/style.css">
+    <!--partcles.css link-->
+    <link rel="stylesheet" type="text/css" href="assets/css/particles.css">
     <meta name="google-signin-client_id" content="937021709360-8mhd249ib635g5jaghbqf1r0dm6qf4ep.apps.googleusercontent.com">
     <meta name="google-signin-cookiepolicy" content="single_host_origin">
     <meta name="google-signin-scope" content="profile email">
+    <!--jquery script-->
+     <script src="http://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+
 
      <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body class="index">
-    <div class="img"></div>
+
+<div class="hero-wrap">
+
+    <section class="left col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <!-- <div class="img"></div> -->
+        <div id="overlay"></div>
+    </section>
+
+    <section class="right col-sm-12 col-md-6
+    col-lg-6">
+    <!--particles div-->
+    <div id ="particles-js"></div>
+
     <div class="signin">
         <div class="title">THE JOB ORGANIZER</div>
         <div class="description">
@@ -46,8 +63,17 @@
         </div>
 
     </div>
-
+    </section>
+</div>
     <script src="assets/js/app.js"></script>
+
+     <script src="http://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+      <!--three.js script tag-->
+    <script src="http://threejs.org/examples/js/libs/stats.min.js"></script>
+
+    <!--particles.js script-->
+    <script type="text/javascript" src="assets/js/particles.js"></script>
 </body>
 
 </html>

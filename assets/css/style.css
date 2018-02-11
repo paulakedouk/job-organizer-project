@@ -7,6 +7,7 @@ body {
   margin: 0 auto;
   padding: 0;
   width: 100%;
+
 }
 
 /* First page */
@@ -25,12 +26,17 @@ body {
   font-weight: 600;
   text-align: center;
   font-size: 24px;
+  color:black;
+  margin-left:150px;
+  width:400px;
 }
 
 .signin {
   margin-top: 110px;
   width: 50%;
-  float: right;
+  /*float: right;*/
+  position:relative;
+  margin-left:200px;
 }
 
 .description p {
@@ -40,12 +46,17 @@ body {
   margin-top: 30px;
   line-height: 22px;
   text-align: center;
+  font-size: 1.8em;
+  color:black;
+  margin:150px;
+  height:1px;
 }
 
 .username-form {
   width: 300px;
   margin: 0 auto;
   margin-top: 40px;
+  margin-left:200px;
 }
 
 .username-form input {
@@ -81,7 +92,8 @@ body {
 
 .buttons {
   text-align: center;
-  margin-top: 50px;
+  margin-top: 10px;
+  margin-left: 200px;
 }
 
 .separate {
@@ -89,6 +101,7 @@ body {
   justify-content: center;
   color: #d3d3d3;
   margin: 40px 0;
+  margin-left:150px;
 }
 
 .line-left,
@@ -364,6 +377,34 @@ form input {
   display: inherit;
 }
 
+/*start of add ons*/
+
+.hero-wrap {
+ display: -webkit-flex; /* Safari */
+ display: flex;
+ max-width: 100%;
+}
+
+.left {
+  min-height: 100vh;
+  background: url(../images/initial-img.jpg) no-repeat center;
+  background-size: cover;
+  -webkit-flex: 1;  /* Safari 6.1+ */
+  -ms-flex: 1;  /* IE 10 */    
+  flex: 1;
+}
+
+.right{
+  -webkit-flex: 1;  /* Safari 6.1+ */
+  -ms-flex: 1;  /* IE 10 */    
+  flex: 1;
+}
+#overlay {
+    background: rgba(11,10,50, .3);
+    height: 100%;
+}
+/*end of add on's*/
+
 .delete-btn,
 .edit-btn {
   padding: 10px 0;
@@ -633,3 +674,34 @@ form input {
     margin-top: 15px;
   }
 }
+
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+  .signin {
+    margin:  -550px  0 0;
+    color:#fff;
+    position:relative;
+    z-index:9999;
+  }
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+  .signin {
+    margin:  -550px  0 0;
+    color:#fff;
+    position:relative;
+    z-index:9999;
+  }
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+/* Large and up */
+@media screen and (min-width: 64em) {}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {}
+
+

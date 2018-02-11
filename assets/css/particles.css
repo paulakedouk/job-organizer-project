@@ -1,0 +1,56 @@
+body{ 
+  
+  margin:0; 
+  font:normal 75% Arial, Helvetica, sans-serif;
+
+ } 
+
+ #particles-js{
+  /*position:absolute; 
+  width: 100%; 
+  height: 100%; 
+  background-color: #fff; 
+  background-image: url(""); background-repeat: no-repeat; 
+  background-size: cover; background-position: 50% 50%; */
+   width: auto;
+  height: 100vh;
+  -webkit-flex: 1;  /* Safari 6.1+ */
+  -ms-flex: 1;  /* IE 10 */    
+  flex: 1;
+  background-color: #fff;
+  background-image: url("");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: 50% 50%;
+  z-index: 1;
+
+ } 
+
+.count-particles{ 
+  background: #000022; 
+  position: absolute; 
+  top: 48px; left: 0; width: 80px; 
+  color: #13E8E9; 
+  font-size: .8em; 
+  text-align: left;
+  text-indent: 4px; 
+  line-height: 14px; 
+  padding-bottom: 2px; 
+  font-family: Helvetica, Arial, sans-serif; 
+  font-weight: bold; 
+
+ }
+
+
+
+section {
+  margin: 0;
+  font:normal 75% Arial, Helvetica, sans-serif;
+}
+
+canvas {
+  display: block;
+  vertical-align: bottom;
+  height:100%;
+
+}
