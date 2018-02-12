@@ -26,7 +26,7 @@ var database = firebase.database();
 // ======================================================================
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// 								DASHBOARD.HTML
+// 								INDEX.HTML
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	// listener for on click of enter button.....
@@ -43,9 +43,6 @@ var database = firebase.database();
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // 								DASHBOARD.HTML
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
 
 // =========== POPULATES 'YOUR SAVED JOBS' TABLE ON PAGE LOAD......
 
@@ -82,9 +79,6 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 			newRow.append("<td class='table-dateApplied'>" + snap.dateApplied + "</td>");
 			newRow.append("<td class='table-status'>" + snap.status + "</td>");
 			newRow.append("<td><button id='detail-btn'>Detail</button></td>");
-			// commenting these buttons out for now
-			// newRow.append("<td><button class='view-job'>View</button></td>");
-			// newRow.append("<td><button class='remove-job'>X</button></td>");
 
 			// appends newRow to table body
 			$(".saved-jobs").append(newRow)
@@ -186,6 +180,14 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 	// listener to update Firebase entry based on fields saved here
 	$(document).on("click", ".edit-btn", function() {
+		
+		// input validation... 
+		// assigning value of date field to a variable
+		var dateInput = $("#date-applied").val();
+		// if it is equal to the correct date format or the default value of "N/A" then....
+		if (moment(dateInput, 'MM/DD/YYYY',true).isValid() || dateInput === "N/A") {
+
+
 		// updates firebase db with whatever is saved as the value of the corresponding input
 		database.ref(localStorage.activeFireID).update({dateApplied: $("#date-applied").val()});
 		database.ref(localStorage.activeFireID).update({contact: $("#contact").val()});
@@ -196,6 +198,13 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 		// brings user to dashboard.html page
 		document.location="dashboard.html"
+
+		}
+
+		// if not....
+		else {
+			alert("Not a correct date format. Dates must be formatted 'MM/DD/YYYY' or 'N/A'");
+		}
 
 	});
 
