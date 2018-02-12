@@ -465,6 +465,48 @@ form input {
   height: 40px;
 }
 
+#simpleModal{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+
+}
+
+.modal-content{
+  text-align: center;
+  background-color: #f4f4f4;
+  margin: 20% auto;
+  padding: 20px;
+  width: 70%;
+  box-shadow: 0 5px 8px 0 rgba(0,0,0,0.2), 0 7px 20px 0 rgba(0,0,0,0.17);
+  animation-name: modalopen;
+  animation-duration: 1s;
+}
+
+.closeBtn {
+  color: #ccc;
+  float: right;
+  font-size: 30px;
+  vertical-align: middle;
+}
+
+.closeBtn:hover,.closeBtn:focus{
+  color: #000;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@keyframes modalopen{
+  from{opacity: 0}
+  to{opacity: 1}
+}
+
 /* Search job page */
 
 .dropdown-search {
