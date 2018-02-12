@@ -134,7 +134,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 	database.ref().on("child_added", function(snapshot) {
 		// storing firebase pathway to variable
 		var snap = snapshot.val();
-		
+
 		// AJAX call to populate job posting data from jobID saved in firebase
 
 		// concatenate URL and activeJOB saved to localStorage
@@ -186,7 +186,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 // =================  UPDATE FUNCTION
 
 	// listener to update Firebase entry based on fields saved here
-	$(document).on("click", ".update-btn", function() {
+	$(document).on("click", ".edit-btn", function() {
 		// updates firebase db with whatever is saved as the value of the corresponding input
 		database.ref(localStorage.activeFireID).update({dateApplied: $("#date-applied").val()});
 		database.ref(localStorage.activeFireID).update({contact: $("#contact").val()});
@@ -276,12 +276,12 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 		// push jobID with empty user inputs for later use
 		database.ref().push({
 			jobID: jobID,
-			dateApplied: "test",
-			contact: "test",
-			appSummary: "test",
-			interview: "test",
-			followUp: "test",
-			status: "test",
+			dateApplied: "N/A",
+			contact: "None yet.",
+			appSummary: "Need to do additional research.",
+			interview: "N/A",
+			followUp: "N/A",
+			status: "Research Phase",
 			dateAdded: firebase.database.ServerValue.TIMESTAMP
 		})
 
