@@ -1,5 +1,4 @@
 
-
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // 							GLOBAL FUNCTIONS & VARIABLES
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -25,6 +24,18 @@
 var database = firebase.database();
 
 // ======================================================================
+
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// 								DASHBOARD.HTML
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	// listener for on click of enter button.....
+	$(document).on("click", ".enter-btn", function() {
+	
+		// brings user to dashboard.html page
+		document.location="dashboard.html"
+	});
+
 
 
 
@@ -88,7 +99,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 
 
-}, function(errorOnject) {
+}, function(errorObject) {
 	console.log("Errors handled: " + errorObject.code);
 });
 
@@ -175,7 +186,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 // =================  UPDATE FUNCTION
 
 	// listener to update Firebase entry based on fields saved here
-	$(document).on("click", ".edit-btn", function() {
+	$(document).on("click", ".update-btn", function() {
 		// updates firebase db with whatever is saved as the value of the corresponding input
 		database.ref(localStorage.activeFireID).update({dateApplied: $("#date-applied").val()});
 		database.ref(localStorage.activeFireID).update({contact: $("#contact").val()});
@@ -273,117 +284,6 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 			status: "test",
 			dateAdded: firebase.database.ServerValue.TIMESTAMP
 		})
-	});
-
-// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ LOGIN functions
-
-$("#google-btn").on("click", function() {
-    
-    var provider = new firebase.auth.GoogleAuthProvider(); 
-
-
-//function to create a popup pag to sign in using google
-    firebase.auth().signInWithPopup(provider).then(function(result) {
-      console.log("result", result)
-    if (result.credential) {
-      // This gives you a Google Access Token. You can use it to access the Google API.
-      var token = result.credential.accessToken;
-    // ...
-    console.log(token);
-    }
-    // The signed-in user info.
-    var user = result.user;
-    console.log(user.displayName);
-
-  }).catch(function(error) {
-    // console.log("error", error)
-    // Handle Errors here.
-    var errorCode = error.code;
-    var errorMessage = error.message;
-    // The email of the user's account used.
-    var email = error.email;
-    // The firebase.auth.AuthCredential type that was used.
-    var credential = error.credential;
-
-    // ...
-  });
-
-
-
-});
-
-$(".signup-btn").on("click", function() {
-
-email = $("#username").val().trim();
-password = $("#password").val().trim();
- 
-//if the user didn't input the information in email and/or password, it will popup a alert saying that the input is required
-  if(!email || !password) {
-    return alert('email and password required');
-  }
-
-//create a alert in case that the email was already used to create a account
-  if(email === profile.email) {
-    return alert("The email address is already in use by another account.");
-  }
-
-//register user, create a new account
-  firebase.auth().createUserWithEmailAndPassword(email, password).catch(function(error) {
-    console.log('register error', error);
-
-  
-
-  if (error.code === 'auth/email-already-in-use') {
-    var credential = firebase.auth.EmailAuthProvider.credential(email, password);
-
-    app.signInWithGoogle()
-    .then(function() {
-      firebase.auth().currentUser.link(credential)
-      .then(function(user) {
-        console.log("Acount linking success", user);
-      }, function(error) {
-        console.log("Account linking error", error);
-      
-      });
-    });
-  }
-
-});
-});
-
-
-//clicking in login button
-$(".login-btn").on("click", function() {
-
-
-email = $("#username").val().trim();
-password = $("#password").val().trim();
-
-  if (!email || !password) {
-    return alert('email and password required');
-  }
-
-  //sign in user that already exist in the system
-  firebase.auth().signInWithEmailAndPassword(email, password)
-  .then(function(result) {
-    alert("Congratulation, you are signed in!");
-    document.location = "dashboard.html";
-  })
-  .catch(function(error) {
-  // Handle Errors here.
-  var errorCode = error.code;
-  var errorMessage = error.message;
-
-  console.log('signIn error', error)
-
-  if (errorCode === 'auth/wrong-password') {
-    alert('Wrong password.');
-  } else {
-    alert(errorMessage);
-  }
-  console.log(error);
-});
-});
 
 		// brings user to dashboard.html page
 		document.location="dashboard.html"
@@ -394,93 +294,5 @@ password = $("#password").val().trim();
 
 
 			
-
-
-
-
-// ========= ELEPHANT GRAVEYARD (unused, preserved code)
-//  JUST UPDATES FOR A SPECIFIC JOB (JOB-VIEW)
-
-
-// // firebase watcher & initial loader
-// database.ref().on("child_added", function(snapshot) {
-// 	// creating variable to call the output pathway
-// 	var snap = snapshot.val();
-
-// 	// populates job-view html fields with user input data from firebase
-// 	$("#date-applied").html(snap.dateApplied);
-// 	$("#app-summary").html(snap.appSummary);
-// 	$("#status").html(snap.Status);
-
-
-// 	// ajax call to populate job posting data from jobID saved in firebase
-	
-// 	// creating variable to store jobID from firebase
-// 	var jobID = snap.jobID;
-
-// 	var queryURL = "https://api-v2.themuse.com/jobs/" + jobID
-
-// 	$.ajax({
-// 		url: queryURL,
-// 		method: "GET"
-// 	}).then(function(response){
-// 		console.log(response)
-// 		$(".company-name").html(response.company.name);
-// 		$(".job-position").html(response.name);
-// 		$(".job-description").html(response.contents);
-// 		// adds attribute to map class storing the city from Muse API, to be used with google maps api
-// 		$(".map").attr("data-city", response.locations[0].name)
-
-// 		});
-
-
-// }, function(errorOnject) {
-// 	console.log("Errors handled: " + errorObject.code);
-// });
-
-
-// =============================================================
-
-  
-
-
-
-
-// ==============================
-
-
-
-
-
-
-// ------------------------------------------------
-
-	// ajax call for Adzuna
-
-		// function ajaxAdzuna () {
-
-		//  	var category = "";
-		//  	// need to fix location search to replace spaces with "%20" 
-		//  	var location = ""
-		//  	var salary_min = 50000
-		//  	var appID = "0b80554a"
-		//  	var apiKey = "472827f96df2b335cc9979fcb8db1fb5";
-		// 	var queryURL = "http://api.adzuna.com:80/v1/api/jobs/gb/search/1?app_id="+ appID + "&app_key="+apiKey + "&results_per_page=20&what=javascript%20developer&what_exclude=java&where="+ location + "&sort_by=salary&salary_min=" + salary_min + "&full_time=1&permanent=1&content-type=application/json"
-
-		//  	$.ajax({
-		//  		url: queryURL,
-		//  		method: "GET"
-		//  	}).then(function(response){
-				
-		//  		console.log(response.results[0])
-		//  		$("#job-posting").html(response.results[0].description)
-		//  		// $("#job-posting").html(response.results[0].contents)
-
-		//  	});
-		//  };
-
-// ------------------------------------------------
-
-
 
 
