@@ -55,7 +55,8 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 	
 	// creating variable to store jobID from firebase
 	var jobID = snap.jobID;
-	var queryURL = "https://api-v2.themuse.com/jobs/" + jobID
+	var apiKey = "7e8366db87246580e2999baa3f991e8e88eb3686abb72e424c38f7a830a9156c";
+	var queryURL = "https://api-v2.themuse.com/jobs/" + jobID + "?api_key="+ apiKey;
 
 	$.ajax({
 		url: queryURL,
@@ -131,7 +132,8 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 		// AJAX call to populate job posting data from jobID saved in firebase
 
 		// concatenate URL and activeJOB saved to localStorage
-		var queryURL = "https://api-v2.themuse.com/jobs/" + localStorage.activeJobID
+		var apiKey = "7e8366db87246580e2999baa3f991e8e88eb3686abb72e424c38f7a830a9156c";
+		var queryURL = "https://api-v2.themuse.com/jobs/" + localStorage.activeJobID + "?api_key="+ apiKey;
 
 		$.ajax({
 		url: queryURL,
@@ -237,9 +239,9 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 		function ajaxMuse () {
 
 			var category = userCategory;
-			// need to fix location search to replace spaces with "%20" 
+			var apiKey = "7e8366db87246580e2999baa3f991e8e88eb3686abb72e424c38f7a830a9156c"
 			var location = "San Francisco";
-			var queryURL = "https://api-v2.themuse.com/jobs?category=" + category + "&location=San%20Francisco%2C%20CA&page=1"
+			var queryURL = "https://api-v2.themuse.com/jobs?category=" + category + "&location=San%20Francisco%2C%20CA&api_key=" + apiKey + "&page=1"
 
 
 
