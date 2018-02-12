@@ -7,6 +7,62 @@
 	var activeJobID;
 	var activeFireID;
 
+	// ------- BEGIN function for Google Maps API
+	function initAutocomplete() {
+	    var map = new google.maps.Map(document.getElementById('map'), {
+	      	center: {lat: 37.773972, lng: -122.431297},
+	        zoom: 12,
+	        mapTypeId: 'roadmap'
+	     });
+	       
+        var input = document.getElementById('input');
+        var searchBox = new google.maps.places.SearchBox(input);
+     
+           // location.addListener('places_changed', function() {
+      
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+        var markers = [];
+    
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+          // var places = location.getPlaces();
+          if (places.length == 0) {
+            return;
+          }
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Returned place contains no geometry");
+              return;
+            }
+         
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              title: place.name,
+              position: place.geometry.location
+            }));
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+            //creates a zoom in the location that you search for
+          map.fitBounds(bounds);
+        });
+      }
+      // ------- END of function for google maps api
+
 
 // =========== INITIALIZE FIREBASE, database variable declared globally
 
@@ -26,7 +82,7 @@ var database = firebase.database();
 // ======================================================================
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// 								DASHBOARD.HTML
+// 								INDEX.HTML
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 	// listener for on click of enter button.....
@@ -44,9 +100,6 @@ var database = firebase.database();
 // 								DASHBOARD.HTML
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
-
-
-
 // =========== POPULATES 'YOUR SAVED JOBS' TABLE ON PAGE LOAD......
 
 // firebase watcher & initial loader
@@ -58,8 +111,8 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 	
 	// creating variable to store jobID from firebase
 	var jobID = snap.jobID;
-	// var apiKey = "7e8366db87246580e2999baa3f991e8e88eb3686abb72e424c38f7a830a9156c"  --------->> api key if we need this later
-	var queryURL = "https://api-v2.themuse.com/jobs/" + jobID
+	var apiKey = "7e8366db87246580e2999baa3f991e8e88eb3686abb72e424c38f7a830a9156c";
+	var queryURL = "https://api-v2.themuse.com/jobs/" + jobID + "?api_key="+ apiKey;
 
 	$.ajax({
 		url: queryURL,
@@ -83,9 +136,6 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 			newRow.append("<td class='table-dateApplied'>" + snap.dateApplied + "</td>");
 			newRow.append("<td class='table-status'>" + snap.status + "</td>");
 			newRow.append("<td><button id='detail-btn'>Detail</button></td>");
-			// commenting these buttons out for now
-			// newRow.append("<td><button class='view-job'>View</button></td>");
-			// newRow.append("<td><button class='remove-job'>X</button></td>");
 
 			// appends newRow to table body
 			$(".saved-jobs").append(newRow)
@@ -134,11 +184,12 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 	database.ref().on("child_added", function(snapshot) {
 		// storing firebase pathway to variable
 		var snap = snapshot.val();
-		
+
 		// AJAX call to populate job posting data from jobID saved in firebase
 
 		// concatenate URL and activeJOB saved to localStorage
-		var queryURL = "https://api-v2.themuse.com/jobs/" + localStorage.activeJobID
+		var apiKey = "7e8366db87246580e2999baa3f991e8e88eb3686abb72e424c38f7a830a9156c";
+		var queryURL = "https://api-v2.themuse.com/jobs/" + localStorage.activeJobID + "?api_key="+ apiKey;
 
 		$.ajax({
 		url: queryURL,
@@ -160,6 +211,9 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 	  	$("#interview").val(snap.interview);
 	  	$("#followUp").val(snap.followUp);
 	  	$("#status").val(snap.status);
+
+	  	// generate google map through google maps api
+	     initAutocomplete();
 
 	 	});
 
@@ -186,7 +240,15 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 // =================  UPDATE FUNCTION
 
 	// listener to update Firebase entry based on fields saved here
-	$(document).on("click", ".update-btn", function() {
+	$(document).on("click", ".edit-btn", function() {
+		
+		// input validation... 
+		// assigning value of date field to a variable
+		var dateInput = $("#date-applied").val();
+		// if it is equal to the correct date format or the default value of "N/A" then....
+		if (moment(dateInput, 'MM/DD/YYYY',true).isValid() || dateInput === "N/A") {
+
+
 		// updates firebase db with whatever is saved as the value of the corresponding input
 		database.ref(localStorage.activeFireID).update({dateApplied: $("#date-applied").val()});
 		database.ref(localStorage.activeFireID).update({contact: $("#contact").val()});
@@ -197,6 +259,13 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 		// brings user to dashboard.html page
 		document.location="dashboard.html"
+
+		}
+
+		// if not....
+		else {
+			alert("Not a correct date format. Dates must be formatted 'MM/DD/YYYY' or 'N/A'");
+		}
 
 	});
 
@@ -229,9 +298,9 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 		function ajaxMuse () {
 
 			var category = userCategory;
-			// need to fix location search to replace spaces with "%20" 
+			var apiKey = "7e8366db87246580e2999baa3f991e8e88eb3686abb72e424c38f7a830a9156c"
 			var location = "San Francisco";
-			var queryURL = "https://api-v2.themuse.com/jobs?category=" + category + "&location=San%20Francisco%2C%20CA&page=1"
+			var queryURL = "https://api-v2.themuse.com/jobs?category=" + category + "&location=San%20Francisco%2C%20CA&api_key=" + apiKey + "&page=1"
 
 
 
@@ -276,12 +345,12 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 		// push jobID with empty user inputs for later use
 		database.ref().push({
 			jobID: jobID,
-			dateApplied: "test",
-			contact: "test",
-			appSummary: "test",
-			interview: "test",
-			followUp: "test",
-			status: "test",
+			dateApplied: "N/A",
+			contact: "None yet.",
+			appSummary: "Need to do additional research.",
+			interview: "N/A",
+			followUp: "N/A",
+			status: "Research Phase",
 			dateAdded: firebase.database.ServerValue.TIMESTAMP
 		})
 

@@ -13,6 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Firebase Reference -->
     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <!-- Moment.js link -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 </head>
 
@@ -49,6 +51,13 @@
                 <p class="job-p" id="job-description"></p>
                 <button>...Learn more</button>
             </div>
+
+            <!-- google map -->
+            <div id="map" style="height: 300px; width: 400px;"></div>
+            <br>
+            <div>Search the location of the company:</div>
+            <input id="input" style="width: 400px;" class="controls" type="text" placeholder="Search Box">
+
             <div class="form-info">
                 <div class="input">
                     <h4>Date Applied</h4>
@@ -98,8 +107,11 @@
             </div>
         </div>
     </div>
-
+    
+    <!-- js link -->
     <script src="assets/js/app.js"></script>
+    <!-- google maps api link -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_N4B9d_JZg76nJnvXnw-eSPDUjO6chQo&libraries=places&callback=initAutocomplete" async defer></script>
 
 </body>
 
