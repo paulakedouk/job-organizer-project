@@ -13,6 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <!-- Firebase Reference -->
     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <!-- Moment.js link -->
+    <script src="https://cdn.jsdelivr.net/momentjs/2.12.0/moment.min.js"></script>
 
 </head>
 
@@ -49,57 +51,67 @@
                 <p class="job-p" id="job-description"></p>
                 <button>...Learn more</button>
             </div>
+
+            <!-- google map -->
+            <div id="map" style="height: 300px; width: 400px;"></div>
+            <br>
+            <div>Search the location of the company:</div>
+            <input id="input" style="width: 400px;" class="controls" type="text" placeholder="Search Box">
+
             <div class="form-info">
                 <div class="input">
                     <h4>Date Applied</h4>
-                    <input type="text" id="date-applied" value="Nada">
+                    <input type="text" id="date-applied" value="">
                     <hr>
                     <p>Date if you applied for the job.</p>
                 </div>
                 <br>
                 <div class="input">
                     <h4>Contact</h4>
-                    <input type="text" id="contact" value="Nada">
+                    <input type="text" id="contact" value="">
                     <hr>
                     <p>Point of contact at the company.</p>
                 </div>
                 <br>
                 <div class="input">
                     <h4>Application Summary</h4>
-                    <input type="text" id="app-summary" value="Nada">
+                    <input type="text" id="app-summary" value="">
                     <hr>
                     <p>What you submitted, like a cover letter, resume, and any additional materials.</p>
                 </div>
                 <br>
                 <div class="input">
                     <h4>Interview</h4>
-                    <input type="text" id="interview" value="Nada">
+                    <input type="text" id="interview" value="">
                     <hr>
                     <p> When your interview is scheduled.</p>
                 </div>
                 <br>
                 <div class="input">
                     <h4>Follow Up</h4>
-                    <input type="text" id="followUp" value="Nada">
+                    <input type="text" id="followUp" value="">
                     <hr>
                     <p>If you send a thank you email.</p>
                 </div>
                 <br>
                 <div class="input">
                     <h4>Status</h4>
-                    <input type="text" id="status" value="Nada">
+                    <input type="text" id="status" value="">
                     <hr>
                     <p>If you were rejected, offered the job, asked in for a second interview, etc.</p>
                 </div>
 
-                <button class="edit-btn">Edit</button>
+                <button class="edit-btn">Update</button>
                 <button class="delete-btn">Delete</button>
 
             </div>
         </div>
     </div>
-
+    
+    <!-- js link -->
     <script src="assets/js/app.js"></script>
+    <!-- google maps api link -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC_N4B9d_JZg76nJnvXnw-eSPDUjO6chQo&libraries=places&callback=initAutocomplete" async defer></script>
 
 </body>
 
