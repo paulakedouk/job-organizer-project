@@ -12,8 +12,8 @@
     <meta name="google-signin-cookiepolicy" content="single_host_origin">
     <meta name="google-signin-scope" content="profile email">
 
-     <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
-     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.9.0/firebase.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 
 <body class="index">
@@ -23,11 +23,20 @@
         <div class="description">
             <p>The platform to organize and connect your job search. 
             </p>
+
         </div>
 
         <div class="buttons">
-            <button class="enter-btn">Enter</button>
+            <button class="login-btn enter-btn">Login</button>
 
+            <div class="separate">
+                <div class="line-left"></div>
+                or
+                <div class="line-right"></div>
+            </div>
+
+            <button class="signup-btn">Sign Up</button>
+            <button id="google-btn">Sign In With Google</button>
         </div>
 
     </div>

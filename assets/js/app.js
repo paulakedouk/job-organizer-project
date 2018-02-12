@@ -1,8 +1,13 @@
 
+=======
+
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // 							GLOBAL FUNCTIONS & VARIABLES
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
+
+=======
 
 	var activeJobID;
 	var activeFireID;
@@ -66,16 +71,16 @@
 
 // =========== INITIALIZE FIREBASE, database variable declared globally
 
- var config = {
-    apiKey: "AIzaSyCyrwud0YbX4UU9gqsiBsexs5EgneeZZ04",
-    authDomain: "project-1-240fe.firebaseapp.com",
-    databaseURL: "https://project-1-240fe.firebaseio.com",
-    projectId: "project-1-240fe",
-    storageBucket: "",
-    messagingSenderId: "102049638069"
-  };
+var config = {
+  apiKey: 'AIzaSyCyrwud0YbX4UU9gqsiBsexs5EgneeZZ04',
+  authDomain: 'project-1-240fe.firebaseapp.com',
+  databaseURL: 'https://project-1-240fe.firebaseio.com',
+  projectId: 'project-1-240fe',
+  storageBucket: '',
+  messagingSenderId: '102049638069'
+};
 
-  firebase.initializeApp(config);
+firebase.initializeApp(config);
 
 var database = firebase.database();
 
@@ -155,26 +160,27 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 // =================================================================================
 
-
-
 // 	======== WHEN A ROW FROM THE TABLE IS CLICKED, brings user to job-view.html with position specific info....
 
-	// on click of any company name, locally save the Firebase ID and jobID of that posting....
-	
-	$(document).on("click", "#detail-btn", function() {
-		// assigning API jobID and Firebase ID to variables....
-		activeJobID = $(this).parent().parent().attr("data-jobID");
-		activeFireID = $(this).parent().parent().attr("data-fireID");
-		//  .... and storing those variables locally so they persist when the page changes
-		localStorage.setItem("activeJobID", activeJobID);
-		localStorage.setItem("activeFireID", activeFireID);
-		
-		// brings user to job-view.html page
-		document.location="job-view.html"
-	});
+// on click of any company name, locally save the Firebase ID and jobID of that posting....
 
+$(document).on('click', '#detail-btn', function() {
+  // assigning API jobID and Firebase ID to variables....
+  activeJobID = $(this)
+    .parent()
+    .parent()
+    .attr('data-jobID');
+  activeFireID = $(this)
+    .parent()
+    .parent()
+    .attr('data-fireID');
+  //  .... and storing those variables locally so they persist when the page changes
+  localStorage.setItem('activeJobID', activeJobID);
+  localStorage.setItem('activeFireID', activeFireID);
 
-
+  // brings user to job-view.html page
+  document.location = 'job-view.html';
+});
 
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // 								JOB-VIEW.HTML
@@ -219,23 +225,21 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 });
 
-
-
 // =================  DELETE FUNCTION
 
-	// listener to remove saved jobs, triggered by the delete button on job-view.html....
-	$(document).on("click", ".delete-btn", function() {
-		// pulls firebase key from the localStorage (saved when linked to job-view.html)
-		var removeKey = localStorage.activeFireID;
-		// removes the corresponding key/value pair child from the root in Firebase
-		database.ref().child(removeKey).remove();
+// listener to remove saved jobs, triggered by the delete button on job-view.html....
+$(document).on('click', '.delete-btn', function() {
+  // pulls firebase key from the localStorage (saved when linked to job-view.html)
+  var removeKey = localStorage.activeFireID;
+  // removes the corresponding key/value pair child from the root in Firebase
+  database
+    .ref()
+    .child(removeKey)
+    .remove();
 
-		// brings user to dashboard.html page
-		document.location="dashboard.html"
-
-	})
-
-
+  // brings user to dashboard.html page
+  document.location = 'dashboard.html';
+});
 
 // =================  UPDATE FUNCTION
 
@@ -273,15 +277,9 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 // =================================================================================
 
-
-
-
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // 								SEARCH-JOB.HTML
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-
-
 
 // ========== AJAX SEARCH TO GENERATE LIST OF JOBS TO ADD TO SAVED TABLE
 
@@ -358,10 +356,4 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 		document.location="dashboard.html"
 
 	});
-
-
-
-
-			
-
 
