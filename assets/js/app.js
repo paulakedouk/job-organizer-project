@@ -7,6 +7,62 @@
 	var activeJobID;
 	var activeFireID;
 
+	// ------- BEGIN function for Google Maps API
+	function initAutocomplete() {
+	    var map = new google.maps.Map(document.getElementById('map'), {
+	      	center: {lat: 37.773972, lng: -122.431297},
+	        zoom: 12,
+	        mapTypeId: 'roadmap'
+	     });
+	       
+        var input = document.getElementById('input');
+        var searchBox = new google.maps.places.SearchBox(input);
+     
+           // location.addListener('places_changed', function() {
+      
+        map.addListener('bounds_changed', function() {
+          searchBox.setBounds(map.getBounds());
+        });
+        var markers = [];
+    
+        searchBox.addListener('places_changed', function() {
+          var places = searchBox.getPlaces();
+          // var places = location.getPlaces();
+          if (places.length == 0) {
+            return;
+          }
+          // Clear out the old markers.
+          markers.forEach(function(marker) {
+            marker.setMap(null);
+          });
+          markers = [];
+          // For each place, get the icon, name and location.
+          var bounds = new google.maps.LatLngBounds();
+          places.forEach(function(place) {
+            if (!place.geometry) {
+              console.log("Returned place contains no geometry");
+              return;
+            }
+         
+            // Create a marker for each place.
+            markers.push(new google.maps.Marker({
+              map: map,
+              title: place.name,
+              position: place.geometry.location
+            }));
+            if (place.geometry.viewport) {
+              // Only geocodes have viewport.
+              bounds.union(place.geometry.viewport);
+            } else {
+              bounds.extend(place.geometry.location);
+            }
+          });
+            //creates a zoom in the location that you search for
+          map.fitBounds(bounds);
+        });
+      }
+      // ------- END of function for google maps api
+
 
 // =========== INITIALIZE FIREBASE, database variable declared globally
 
@@ -155,6 +211,9 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 	  	$("#interview").val(snap.interview);
 	  	$("#followUp").val(snap.followUp);
 	  	$("#status").val(snap.status);
+
+	  	// generate google map through google maps api
+	     initAutocomplete();
 
 	 	});
 
