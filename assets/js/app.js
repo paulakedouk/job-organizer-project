@@ -24,6 +24,18 @@ var database = firebase.database();
 
 // ======================================================================
 
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// 								DASHBOARD.HTML
+// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+	// listener for on click of enter button.....
+	$(document).on("click", ".enter-btn", function() {
+	
+		// brings user to dashboard.html page
+		document.location="dashboard.html"
+	});
+
+
 
 
 
