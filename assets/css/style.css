@@ -535,9 +535,15 @@ form input {
 
   .table-job,
   .total-applied,
-  .scheduled-interview {
+  .scheduled-interview,
+  .new-job {
     width: 90% !important;
   }
+
+  form input {
+    width: 90%;
+  }
+
   .total-applied,
   .scheduled-interview {
     padding: 0 30px;
