@@ -249,7 +249,30 @@ $(document).on('click', '.edit-btn', function() {
     document.location = 'dashboard.html';
   } else {
     // if not....
-    alert("Not a correct date format. Dates must be formatted 'MM/DD/YYYY' or 'N/A'");
+   var modal= document.getElementById('simpleModal');
+      // var modalBtn = document.getElementsByClassName('edit-btn');
+      var closeBtn = document.getElementsByClassName('closeBtn')[0];
+
+      $(".edit-btn").on('click', openModal);
+      $(".closeBtn").on('click', closeModal);
+
+      window.addEventListener('click', clickOutside);
+
+      function openModal() {
+        modal.style.display = 'block';
+      }
+
+      function closeModal() {
+        modal.style.display = 'none';
+
+      }
+
+      function clickOutside(e) {
+        if(e.target == modal) {
+        modal.style.display = 'none';
+        }
+      }
+
   }
 });
 
