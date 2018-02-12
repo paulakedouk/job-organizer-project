@@ -1,3 +1,4 @@
+
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 // 							GLOBAL FUNCTIONS & VARIABLES
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
@@ -24,14 +25,9 @@ var database = firebase.database();
 
 // ======================================================================
 
-
-
-
-
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-// 								INDEX.HTML
+// 								DASHBOARD.HTML
 // ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
 
 	// listener for on click of enter button.....
 	$(document).on("click", ".enter-btn", function() {
@@ -39,6 +35,8 @@ var database = firebase.database();
 		// brings user to dashboard.html page
 		document.location="dashboard.html"
 	});
+
+
 
 
 
@@ -188,7 +186,7 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 // =================  UPDATE FUNCTION
 
 	// listener to update Firebase entry based on fields saved here
-	$(document).on("click", ".edit-btn", function() {
+	$(document).on("click", ".update-btn", function() {
 		// updates firebase db with whatever is saved as the value of the corresponding input
 		database.ref(localStorage.activeFireID).update({dateApplied: $("#date-applied").val()});
 		database.ref(localStorage.activeFireID).update({contact: $("#contact").val()});
@@ -296,7 +294,5 @@ database.ref().orderByChild("dateAdded").on("child_added", function(snapshot) {
 
 
 			
-
-
 
 
