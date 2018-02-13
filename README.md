@@ -1,4 +1,7 @@
-## The Job Organizer
+# The Job Organizer
+
+<img src="assets/images/poster.jpg?raw=true" />
+<img src="assets/images/responsive.gif" />
 
 ## **Overview**
 
@@ -11,26 +14,24 @@ To access The Job Organizer, you can visit https://paulakedouk.github.io/project
 ## **About the application**
 
 Using this application, users can:
-- Look for job positions that are currently open to apply.
-- Add job positions that they found on other websites to this application.
-- Search for the companies addresses using Google Maps.
-- Organize all the jobs you have applied for, and their key information, e.g., date applied, contact, etc.
 
+* Look for job positions that are currently open to apply.
+* Add job positions that they found on other websites to this application.
+* Search for the companies addresses using Google Maps.
+* Organize all the jobs you have applied for, and their key information, e.g., date applied, contact, etc.
 
-## **Technologies used**
+## **Built with**
 
-In this project we used:
-```
-Flexbox to make it responsive
-Firebase to data storage
-JavaScript
-Muse and Google Maps API
-Jquery and Particles.js as javascript libraries
-```
+* [Flexbox](https://developer.mozilla.org/en-US/docs/Learn/CSS/CSS_layout/Flexbox) - Flexbox layout system
+* [Firebase](https://firebase.google.com/docs/) - to Data Storage.
+* [The Muse](https://www.themuse.com/developers/api/v2) - to The Muse API used.
+* [Google Maps](https://developers.google.com/maps/documentation/javascript/) - to Google Maps API used.
+* [jQuery](http://api.jquery.com/) - to Javascript library used.
+* [Particles.js](https://vincentgarreau.com/particles.js/) JavaScript library
 
 ## **Authors**
 
-- Ana Kedouk - https://github.com/paulakedouk
-- Carlo - 
-- Lucas Iannaccone - https://github.com/Liannaccone
-- Rick Picolli - https://github.com/rickpicolli
+* Ana Kedouk - https://github.com/paulakedouk
+* Carlo -
+* Lucas Iannaccone - https://github.com/Liannaccone
+* Rick Picolli - https://github.com/rickpicolli
