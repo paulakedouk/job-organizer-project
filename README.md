@@ -1,8 +1,5 @@
 ## The Job Organizer
 
-
-![Alt text](/assets/images/screenshot.png?raw=true)
-
 ## **Overview**
 
 The Job Organizer provides a platform to manage interactions throughout the Job Search process. Helps organize candidates profiles, and connect users to potential positions based on their job searches.
@@ -36,7 +33,7 @@ This project is licensed with MIT License.
 
 ## **Authors**
 
-Ana Kedouk - https://github.com/paulakedouk
-Carlo - 
-Lucas Iannaccone - https://github.com/Liannaccone
-Rick Picolli - https://github.com/rickpicolli
+- Ana Kedouk - https://github.com/paulakedouk
+- Carlo - 
+- Lucas Iannaccone - https://github.com/Liannaccone
+- Rick Picolli - https://github.com/rickpicolli
