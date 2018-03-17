@@ -9,7 +9,7 @@ The Job Organizer provides a platform to manage interactions throughout the job 
 
 ## **Instructions**
 
-To access The Job Organizer, you can visit https://paulakedouk.github.io/project-one/ ! If you prefer to run the application locally, you can clone this repository and open index.html in the web browser of your choice.
+To access The Job Organizer, you can visit https://paulakedouk.github.io/job-organizer-project/ ! If you prefer to run the application locally, you can clone this repository and open index.html in the web browser of your choice.
 
 ## **About the application**
 
